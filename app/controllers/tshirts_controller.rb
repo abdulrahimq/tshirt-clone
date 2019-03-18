@@ -11,7 +11,7 @@ class TshirtsController < ApplicationController
     @tshirt = Tshirt.new(tshirt_params)
     @tshirt.save
 
-    redirect_to tshirt_path(@tshirt)
+    redirect_to tshirts_index_path
   end
 
   private
