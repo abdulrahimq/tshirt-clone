@@ -16,8 +16,9 @@ class TshirtsController < ApplicationController
 
   def create
     @tshirt = Tshirt.new(tshirt_params)
+    @tshirt.user = current_user
     authorize @tshirt
-    @tshirt.save
+    @tshirt.save!
 
     redirect_to tshirts_path
   end
@@ -33,7 +34,7 @@ class TshirtsController < ApplicationController
     if @tshirt.update(tshirt_params)
       redirect_to tshirt_path(@tshirt)
     else
-      redner :edit
+      render :edit
     end
   end
 
