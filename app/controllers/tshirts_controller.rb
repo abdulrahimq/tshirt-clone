@@ -1,19 +1,22 @@
 class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
   def index
-    @tshirts = Tshirt.all
+    @tshirts = policy_scope(Tshirt)
   end
 
   def show
     @tshirt = Tshirt.find(params[:id])
+    authorize @tshirt
   end
 
   def new
     @tshirt = Tshirt.new
+    authorize @tshirt
   end
 
   def create
     @tshirt = Tshirt.new(tshirt_params)
+    authorize @tshirt
     @tshirt.save
 
     redirect_to tshirts_path
@@ -21,10 +24,12 @@ class TshirtsController < ApplicationController
 
   def edit
     @tshirt = Tshirt.find(params[:id])
+    authorize @tshirt
   end
 
   def update
     @tshirt = Tshirt.find(params[:id])
+    authorize @tshirt
     if @tshirt.update(tshirt_params)
       redirect_to tshirt_path(@tshirt)
     else
@@ -34,6 +39,7 @@ class TshirtsController < ApplicationController
 
   def destroy
     @tshirt = Tshirt.find(params[:id])
+    authorize @tshirt
     @tshirt.destroy
 
     redirect_to tshirts_path
