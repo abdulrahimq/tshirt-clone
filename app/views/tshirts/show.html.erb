@@ -5,8 +5,11 @@
 <br>
 <%= link_to "All tshirts", tshirts_path %>
 <br>
-<%= link_to "Edit tshirt", edit_tshirt_path  %>
-<br>
-<%= link_to "Delete tshirt", tshirt_path(@tshirt),
-      method: :delete,
-      data: { confirm: "Are you sure?"}  %>
+
+<% if current_user == @tshirt.user || current_user.admin %>
+  <%= link_to "Edit tshirt", edit_tshirt_path  %>
+  <br>
+  <%= link_to "Delete tshirt", tshirt_path(@tshirt),
+        method: :delete,
+        data: { confirm: "Are you sure?"}  %>
+<% end %>
