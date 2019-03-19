@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-  resources :tshirts, only: [:index, :new, :create]
+  resources :tshirts
+
   devise_for :users
   resources :users, only: [:index, :show]
   root to: 'pages#home'
