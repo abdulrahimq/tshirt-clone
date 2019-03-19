@@ -1,4 +1,5 @@
 class TshirtsController < ApplicationController
+  # before_action :tshirt_params, only: [:update]
   def index
     @tshirts = Tshirt.all
   end
@@ -16,6 +17,22 @@ class TshirtsController < ApplicationController
     @tshirt.save
 
     redirect_to tshirts_path
+  end
+
+  def edit
+    @tshirt = Tshirt.find(params[:id])
+  end
+
+  def update
+    @tshirt = Tshirt.find(params[:id])
+    if @tshirt.update(tshirt_params)
+      redirect_to tshirt_path(@tshirt)
+    else
+      redner :edit
+    end
+  end
+
+  def destory
   end
 
   private
