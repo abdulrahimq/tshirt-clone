@@ -1,12 +1,24 @@
-<h1>Tshirts index</h1>
-<%= link_to "Add a new shirt", new_tshirt_path %>
-<br>
-<br>
-<% @tshirts.each do |tshirt| %>
-  <%= tshirt.id %>
-  <%= link_to tshirt.name, tshirt_path(tshirt) %>
-  <%= tshirt.description %>
+
+  <h1>Tshirts index</h1>
+  <%= link_to "Add a new shirt", new_tshirt_path %>
   <br>
-<% end %>
+  <br>
 
-
+  <div class="container">
+  <div class="row">
+    <% @tshirts.each do |tshirt| %>
+      <div class="col-md-4">
+        <div class="card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path tshirt.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-category">
+            <%= link_to tshirt.name, tshirt_path(tshirt) %>
+          </div>
+          <div class="card-description">
+            <h2><%= tshirt.description %></h2>
+          </div>
+          <img src="" alt="" class="card-user">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
