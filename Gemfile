@@ -8,6 +8,9 @@ gem 'puma'
 gem 'rails', '5.2.2.1'
 gem 'redis'
 gem 'devise'
+gem 'faker'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -18,6 +21,7 @@ gem 'webpacker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'dotenv-rails'
 end
 
 group :development, :test do

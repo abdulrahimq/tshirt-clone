@@ -1,0 +1,7 @@
+<h1>Admin Panel Users</h1>
+
+<% @users.each do |each| %>
+    <%= link_to each.email, user_path(each) %>
+    <%= link_to "Edit", edit_user_registration_path(each) %>
+    <%= link_to "Delete", user_registration_path(each), method: :delete %>
+<% end %>

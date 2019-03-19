@@ -1,0 +1,12 @@
+<%= cl_image_tag @tshirt.photo, height: 300, width: 400, crop: :fill %>
+<%= @tshirt.id %>
+<%= @tshirt.name %>
+<%= @tshirt.description %>
+<br>
+<%= link_to "All tshirts", tshirts_path %>
+<br>
+<%= link_to "Edit tshirt", edit_tshirt_path  %>
+<br>
+<%= link_to "Delete tshirt", tshirt_path(@tshirt),
+      method: :delete,
+      data: { confirm: "Are you sure?"}  %>
