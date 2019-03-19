@@ -1,8 +1,9 @@
-<h1>Tshirts#new</h1>
-<p>Find me in app/views/tshirts/new.html.erb</p>
+<h1>Add a new Tshirt</h1>
 <%= simple_form_for(@tshirt) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "Add a new shirt", class: "btn btn-primary" %>
 <% end %>
 
