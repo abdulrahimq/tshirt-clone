@@ -1,5 +1,11 @@
-<h1>Tshirts#index</h1>
-<p>Find me in app/views/tshirts/index.html.erb</p>
+<h1>Tshirts index</h1>
+<%= link_to "Add a new shirt", new_tshirt_path %>
+<br>
+<br>
+<% @tshirts.each do |tshirt| %>
+  <%= tshirt.id %>
+  <%= link_to tshirt.name, tshirt_path(tshirt) %>
+  <%= tshirt.description %>
+  <br>
+<% end %>
 
-<%= @tshirts %>
-<%= @tshirts.length %>
