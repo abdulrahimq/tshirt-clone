@@ -32,7 +32,11 @@ class TshirtsController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
+    @tshirt = Tshirt.find(params[:id])
+    @tshirt.destroy
+
+    redirect_to tshirts_path
   end
 
   private
