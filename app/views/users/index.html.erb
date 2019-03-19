@@ -1,7 +1,9 @@
-<h1> All Users </h1>
+<h1>Admin Panel Users</h1>
 
-<%= @users.each do |user| %>
-<%= link_to user.name, users_show(user) %>
-<%= link_to "Edit" %>
-<%= link_to "Delete", user_registration_path(current_user) %>
-<%= end %>
+<% @users.each do |each| %>
+  <% if each != current_user %>
+    <%= link_to each.email, user_path(each) %>
+    <%= link_to "Edit", edit_user_registration_path(each) %>
+    <%= link_to "Delete", user_registration_path(each), method: :delete %>
+  <% end %>
+<% end %>
