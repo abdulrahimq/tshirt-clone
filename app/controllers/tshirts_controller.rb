@@ -42,6 +42,6 @@ class TshirtsController < ApplicationController
   private
 
   def tshirt_params
-    params.require(:tshirt).permit(:name, :description)
+    params.require(:tshirt).permit(:name, :description, :photo)
   end
 end
