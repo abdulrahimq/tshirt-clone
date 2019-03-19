@@ -9,6 +9,7 @@ gem 'rails', '5.2.2.1'
 gem 'redis'
 gem 'devise'
 gem 'faker'
+gem 'cloudinary', '~> 1.9.1'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
