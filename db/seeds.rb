@@ -11,10 +11,11 @@ puts "Seeding DB for Gabe to design"
 10.times do
   new_shirt = Tshirt.new(name: Faker::TvShows::RickAndMorty.character , description: Faker::TvShows::RickAndMorty.location)
   new_shirt.save!
+  User.create(email: Faker::Internet.email, password: 'fuckyou', first_name: Faker::Name.name, last_name: Faker::Name.name, admin: false)
 end
 
 if Tshirt.first
   puts "Seeds sowed successfully!"
 else
-  puts "Not ferile!"
+  puts "Not fertile!"
 end
