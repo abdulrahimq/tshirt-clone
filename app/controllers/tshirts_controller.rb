@@ -3,6 +3,10 @@ class TshirtsController < ApplicationController
     @tshirts = Tshirt.all
   end
 
+  def show
+    @tshirt = Tshirt.find(params[:id])
+  end
+
   def new
     @tshirt = Tshirt.new
   end
