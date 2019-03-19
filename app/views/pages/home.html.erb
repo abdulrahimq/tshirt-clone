@@ -1,15 +1,15 @@
 <div class="navbar-wagon">
   <a href="root"><i class="fas fa-tshirt"></i></a>
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Register</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Login</a>
+    <a href="<%= new_user_registration_path %>" class="navbar-wagon-item navbar-wagon-link">Register</a>
+    <a href=" <%= new_user_session_path %>" class="navbar-wagon-item navbar-wagon-link">Login</a>
   </div>
 </div>
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 5%, rgba(10,10,10,0.6) 5%), url('https://source.unsplash.com/P3pI6xzovu0');">
   <div class="banner-content">
     <h1>Abed's T-shirt Rental</h1>
-    <a href=<%= "root" %> class="btn btn-outline-light btn-lg">Browse collection</a>
+    <a href="<%= tshirts_path %>" class="btn btn-outline-light btn-lg">Browse collection</a>
   </div>
 </div>
 
