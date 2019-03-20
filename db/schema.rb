@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_03_19_220628)
-
+ActiveRecord::Schema.define(version: 2019_03_19_220628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +31,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_220628)
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "description"
-    t.bigint "user_id"
     t.string "photo"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_tshirts_on_user_id"
   end
 
