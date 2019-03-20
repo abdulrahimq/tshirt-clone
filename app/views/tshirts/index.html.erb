@@ -1,8 +1,15 @@
+  <div class="container text-center" style="padding: 15px">
+    <h3>View our Tees from around the world!</h3>
+    <%= link_to "Add a new shirt", new_tshirt_path, {class: 'btn btn-primary'} %>
+  </div>
 
-  <h1>Tshirts index</h1>
-  <%= link_to "Add a new shirt", new_tshirt_path %>
-  <br>
-  <br>
+  <div class="container">
+    <div id="map" style="width: 100%;
+    height: 400px;
+    margin: 30px 0px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
 
   <div class="container">
   <div class="row">
@@ -22,3 +29,5 @@
     <% end %>
   </div>
 </div>
+
+
