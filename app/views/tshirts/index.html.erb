@@ -16,9 +16,10 @@
     <% @tshirts.each do |tshirt| %>
       <div class="col-md-4">
         <div class="card"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path tshirt.photo, height: 300, width: 400, crop: :fill %>')">
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= tshirt.photo %>')">
           <div class="card-category">
             <%= link_to tshirt.name, tshirt_path(tshirt) %>
+            <%= tshirt.photo %>
           </div>
           <div class="card-description">
             <h2><%= tshirt.description %></h2>
