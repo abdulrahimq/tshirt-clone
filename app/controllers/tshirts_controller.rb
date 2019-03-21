@@ -2,7 +2,13 @@ class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @tshirts = policy_scope(Tshirt)
+    @query = params[:query]
+    if @query.present?
+      @tshirts = policy_scope(Tshirt).search(@query)
+    else
+      @tshirts = policy_scope(Tshirt)
+    end
+
     @creators = User.where.not(latitude: nil, longitude: nil)
 
     @markers = @creators.map do |creator|
@@ -13,6 +19,7 @@ class TshirtsController < ApplicationController
         image_url: helpers.asset_url('default')
       }
     end
+
   end
 
   def show
@@ -60,6 +67,6 @@ class TshirtsController < ApplicationController
   private
 
   def tshirt_params
-    params.require(:tshirt).permit(:name, :description, :photo)
+    params.require(:tshirt).permit(:name, :description, :photo, :query)
   end
 end
