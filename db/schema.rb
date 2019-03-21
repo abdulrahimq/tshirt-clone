@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_230907) do
+ActiveRecord::Schema.define(version: 2019_03_21_233820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
-    t.bigint "tshirts_id"
-    t.bigint "rentals_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rentals_id"], name: "index_items_on_rentals_id"
-    t.index ["tshirts_id"], name: "index_items_on_tshirts_id"
+    t.bigint "tshirt_id"
+    t.bigint "rental_id"
+    t.index ["rental_id"], name: "index_items_on_rental_id"
+    t.index ["tshirt_id"], name: "index_items_on_tshirt_id"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_230907) do
     t.string "description"
     t.string "photo"
     t.bigint "user_id"
-    t.string "tags"
     t.index ["user_id"], name: "index_tshirts_on_user_id"
   end
 
