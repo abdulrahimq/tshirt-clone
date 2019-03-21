@@ -2,7 +2,7 @@ class Tshirt < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :name, :description
+    attribute :name, :description, :tags
   end
 
   belongs_to :user
