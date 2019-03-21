@@ -34,3 +34,9 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-interact'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-leaflet'
+end

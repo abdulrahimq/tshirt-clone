@@ -7,6 +7,7 @@
 @import "card";
 @import "map";
 @import "avatar";
+@import "resize";
 
 .container {
   height: 100vh;
@@ -15,3 +16,5 @@
 .container-fluid {
   height: 100vh;
 }
+
+

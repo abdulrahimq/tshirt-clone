@@ -1,31 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
+
 <br>
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <img src="<%= image_path('white.png')%>" height=450, width=500, alt="">
+      <div class="resize-container">
+        <div class="resize-drag">Test this</div>
+        <img id="imagedest", height=550, width=500, src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553144623/White.jpg">
+      </div>
     </div>
     <div class="col-md">
-      <h1>Add a new t-shirt design</h1>
+      <h1>T-Shirt designer</h1>
       <%= simple_form_for(@tshirt) do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit "Load photo", class: "btn btn-primary btn-sm" %>
+        <%= f.submit "Load photo", class: "btn btn-outline-dark" %>
       <% end %>
       <br>
       <h3>Color:</h3>
-      <div class="custom-options">
-      <%= simple_form_for(@tshirt) do |f| %>
-      <%= f.collection_radio_buttons :description, [['white', 'White'], ['grey', 'Grey'], ['black', 'Black']], :first, :last %>
-      <% end %>
+      <div class="radio-buttons">
+        <form name="color-picker" action="">
+          <input type="radio" name="choice" value="white" onclick="check_color(1)"> White
+          <div style="background-color: white; padding: 10px; border: 1px solid black;"></div>
+          <input type="radio" name="choice" value="grey" onclick="check_color(2)"> Grey
+          <div style="background-color: lightgrey; padding: 10px; border: 1px solid black;"></div>
+          <input type="radio" name="choice" value="black" onclick="check_color(3)"> Black
+          <div style="background-color: black; padding: 10px; border: 1px solid black;"></div>
+          </form>
+      </div>
       <br>
-      </div>
-      <div class="nav-buttons">
-        <a href=<%= tshirts_path %> class="btn btn-outline-dark btn-sm">Back to tshirts</a>
-      </div>
+      <a href=<%= tshirts_path %> class="btn btn-outline-dark btn-sm">Back to tshirts</a>
     </div>
   </div>
 </div>
 
-
+<script src="https://unpkg.com/interactjs@next/dist/interact.min.js"></script>
+<script src="main.js"></script>
