@@ -35,20 +35,24 @@
   <div class="container">
   <div class="row">
     <% @tshirts.each do |tshirt| %>
-      <div class="col-md-4">
-        <div class="card"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= tshirt.photo %>')">
+      <div class="card-container col-3">
+        <div class="cardd">
+          <img src="<%= tshirt.photo %>" alt="">
+        </div>
+        <div>
           <div class="card-category">
-            <%= link_to tshirt.name, tshirt_path(tshirt) %>
+            <h3>
+              <%= link_to tshirt.name, tshirt_path(tshirt) %>
+            </h3>
           </div>
           <div class="card-description">
             <h2><%= tshirt.description %></h2>
+            <h2>$24.99</h5>
           </div>
-          <img src="" alt="" class="card-user">
         </div>
       </div>
     <% end %>
-  </div>
+    </div>
 </div>
 
 

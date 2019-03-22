@@ -1,12 +1,25 @@
-.card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  position: relative;
-  width: 300px;
-  margin-bottom: 10px;
+.container {
+  max-width: 100%;
+}
+.card-container {
+  height: 500px;
+  width: 1000px;
+  margin: 10px;
+
+}
+
+.row {
+
+}
+
+.cardd {
+  height: 400px;
+}
+
+.cardd > img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
 }
 .card-user {
   position: absolute;
@@ -14,24 +27,36 @@
   top: 10px;
   width: 40px;
   border-radius: 50%;
+  background-position: center;
 }
 .card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
   font-size: 24px;
+  line-height: 1.8;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0px;
+  color: black;
 }
+
+.card-category a {
+  color: #212121;
+  font-size: 18px;
+}
+
+.card-category:hover {
+  opacity: 0.7;
+}
+
+.card-description {
+  text-align: center;
+  font-size: 1rem;
+}
+.card-description h2{
+  font-size: 16px;
+}
+
 .card-description p {
-  font-size: 14px;
+  font-size: 12px;
   opacity: 0.7;
   font-weight: lighter;
 }
