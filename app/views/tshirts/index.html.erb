@@ -1,4 +1,4 @@
-  <div class="container text-center" style="padding: 15px">
+  <div class="text-center" style="padding: 15px">
     <h3>View our Tees from around the world!</h3>
     <%= link_to "Add a new shirt", new_tshirt_path, {class: 'btn btn-primary'} %>
   </div>
@@ -16,7 +16,7 @@
     <% @tshirts.each do |tshirt| %>
       <div class="col-md-4">
         <div class="card"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path tshirt.photo, height: 300, width: 400, crop: :fill %>')">
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= tshirt.photo %>')">
           <div class="card-category">
             <%= link_to tshirt.name, tshirt_path(tshirt) %>
           </div>
