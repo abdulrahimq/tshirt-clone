@@ -8,13 +8,14 @@
       <h2><%= @tshirt.name%></h2>
       <h3>id:<%= @tshirt.id %></h3>
       <p> <%= @tshirt.description %></p>
-      <!-- <a href="<%= root_path %>" class="btn btn-primary btn-block buy-btn" data-toggle="modal" data-target="#exampleModal">Add to cart</a> -->
+
       <p> <%= form_for @item do |f| %>
         <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
         <%= f.number_field :quantity %>
         <%= f.submit "Add to Cart" %>
         <% end %>
       </p>
+      <a href="<%= root_path %>" class="btn btn-primary btn-block buy-btn">Add to cart</a>
       <div class="nav-buttons">
         <a href="<%= tshirts_path %>" class="btn btn-outline-dark btn-sm">Back to tshirts</a>
         <% if current_user == @tshirt.user || current_user.admin %>

@@ -3,7 +3,10 @@
   <head>
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch.helper/2/algoliasearch.helper.min.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,11 +16,12 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
-  <body>
+  <body >
     <%= render '/components/navbar' %>
     <%= yield %>
     <%= render 'components/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
   </body>
 </html>

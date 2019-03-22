@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_03_22_215646) do
     t.string "photo"
     t.bigint "user_id"
     t.float "price"
+    t.string "tags"
     t.index ["user_id"], name: "index_tshirts_on_user_id"
   end
 
