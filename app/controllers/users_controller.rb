@@ -8,4 +8,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    authorize @user
+    @user.destroy
+
+    redirect_to root_path
+  end
 end

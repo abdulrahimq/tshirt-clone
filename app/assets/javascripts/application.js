@@ -6,11 +6,8 @@
 //= require leaflet
 
 // target elements with the "draggable" class
-interact('.draggable')
-  .draggable({
-  });
 
-  function dragMoveListener (event) {
+function dragMoveListener (event) {
     var target = event.target,
         // keep the dragged position in the data-x/data-y attributes
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
@@ -26,5 +23,11 @@ interact('.draggable')
     target.setAttribute('data-y', y);
   }
 
-  // this is used later in the resizing and gesture demos
-  window.dragMoveListener = dragMoveListener;
+// this is used later in the resizing and gesture demos
+window.dragMoveListener = dragMoveListener;
+
+
+interact('.draggable')
+  .draggable({
+    onmove: dragMoveListener,
+});

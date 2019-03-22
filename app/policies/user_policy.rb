@@ -6,11 +6,14 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    user.admin
   end
 
   def show?
     true
   end
 
+  def destroy?
+    user.admin
+  end
 end
