@@ -29,7 +29,7 @@ class TshirtsController < ApplicationController
     @tshirt = Tshirt.new(tshirt_params)
     @tshirt.user = current_user
     authorize @tshirt
-    @tshirt.save!
+    @tshirt.save
   end
 
   def edit

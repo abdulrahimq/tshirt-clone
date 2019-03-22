@@ -1,22 +1,20 @@
-<script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
-
 <br>
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <div class="resize-container">
-        <div class="resize-drag">
-          <img id="user-image", height=200, width=200, src="#">
+      <div class="drag-container">
+        <div class="draggable">
+          <img id="user-image", height=225, width=225, src="https://via.placeholder.com/200x200?text=Placeholder">
         </div>
         <img id="imagedest", height=550, width=500, src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553144623/White.jpg">
       </div>
     </div>
     <div class="col-md">
       <h1>T-Shirt designer</h1>
-      <%= simple_form_for(@tshirt) do |f| %>
+      <%= simple_form_for(@tshirt, remote: true) do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
-        <%= f.input :photo%>
+        <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden  %>
         <%= f.submit "Load photo", class: "btn btn-outline-dark" %>
       <% end %>
@@ -32,15 +30,10 @@
           <div style="background-color: black; padding: 10px; border: 1px solid black;"></div>
           </form>
       </div>
-
-      <input type="button" name="stupid-solution" onclick="show()">TEST
       <br>
       <a href=<%= tshirts_path %> class="btn btn-outline-dark btn-sm">Back to tshirts</a>
     </div>
-    <%= content_tag :div, id: "temp_information", data: {temp: @tshirt} do %>
-    <% end %>
   </div>
 </div>
 
-<script src="https://unpkg.com/interactjs@next/dist/interact.min.js"></script>
-<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
