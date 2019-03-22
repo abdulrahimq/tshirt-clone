@@ -1,23 +1,28 @@
-.navbar-lewagon {
+.navbar-carbon {
   display: flex;
   background: black;
-  color: white;
   justify-content: space-between;
   height: 10vh;
   padding: 0px 50px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-carbon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-light .navbar-brand {
+.nav-link {
   color: white;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-  color: white;
+.nav-link:hover, .nav-link:focus {
+  color: red;
 }
 
+.logo {
+  color: white;
+  font-size: 32px;
+}
 
+.logo :hover {
+  color: red;
+}
