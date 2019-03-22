@@ -1,0 +1,25 @@
+#imagedest {
+  position: relative;
+  z-index: -1;
+}
+
+#user-image {
+  position: relative;
+  z-index: 1;
+}
+
+.draggable {
+  // touch-action: none;
+  /* This makes things *much* easier */
+  // box-sizing: border-box;
+  position: absolute;
+  top: 25%;
+  left: 27%;
+}
+
+.drag-container {
+  position: relative;
+  display: inline-block;
+  width: 500px;
+  height: 550px;
+}

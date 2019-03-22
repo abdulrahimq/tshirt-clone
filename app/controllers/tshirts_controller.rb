@@ -36,9 +36,7 @@ class TshirtsController < ApplicationController
     @tshirt = Tshirt.new(tshirt_params)
     @tshirt.user = current_user
     authorize @tshirt
-    @tshirt.save!
-
-    redirect_to tshirts_path
+    @tshirt.save
   end
 
   def edit
