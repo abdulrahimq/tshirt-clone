@@ -24,7 +24,9 @@ class TshirtsController < ApplicationController
 
   def show
     @tshirt = Tshirt.find(params[:id])
+    @item = current_rental.items.new
     authorize @tshirt
+    authorize @item
   end
 
   def new

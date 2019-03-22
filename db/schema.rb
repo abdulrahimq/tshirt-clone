@@ -10,20 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_03_21_203010) do
+ActiveRecord::Schema.define(version: 2019_03_22_215646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "rentals", force: :cascade do |t|
-    t.string "content"
-    t.string "text"
-    t.bigint "user_id"
-    t.bigint "tshirt_id"
+  create_table "items", force: :cascade do |t|
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tshirt_id"], name: "index_rentals_on_tshirt_id"
+    t.bigint "tshirt_id"
+    t.bigint "rental_id"
+    t.index ["rental_id"], name: "index_items_on_rental_id"
+    t.index ["tshirt_id"], name: "index_items_on_tshirt_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "total"
+    t.string "status"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
@@ -34,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_203010) do
     t.string "description"
     t.string "photo"
     t.bigint "user_id"
+    t.float "price"
     t.string "tags"
     t.index ["user_id"], name: "index_tshirts_on_user_id"
   end
@@ -58,7 +66,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_203010) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "rentals", "tshirts"
   add_foreign_key "rentals", "users"
   add_foreign_key "tshirts", "users"
 end
