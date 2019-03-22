@@ -1,4 +1,30 @@
-<h1>User Info</h1>
+<div class="banner-user" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 5%, rgba(10,10,10,0.6) 5%), url('https://source.unsplash.com/kWVImL5QxJI')">
+  <div class="avatar">
+    <%= cl_image_tag @user.photo, height: 100, width: 100, crop: :fill, radius: 5 %>
+  </div>
+  <div>
+    <h1>User Info</h1>
+    <%= @user.email %>
+  </div>
+</div>
+<div class="user-bar">
+  <div class="user-buttons">
+    <a href="#" class="btn-medium">Message</a>
+    <a href="#" class="btn-medium">+ Follow</a>
+  </div>
+  <div class="user-social-links footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
 
-<%= @user.email %>
-<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+<div class="user-content">
+  <h4 class="user-name">Abdelrahim</h3>
+  <p class="user-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque felis in urna ultrices, ut egestas nibh scelerisque. Etiam egestas massa sed posuere laoreet. Integer ac neque a nibh egestas facilisis at quis ipsum. Donec suscipit posuere metus, condimentum scelerisque purus faucibus non. Nunc ultricies nulla vel libero egestas, sed mattis ipsum venenatis. Nulla ultricies ac leo ut pulvinar. Cras mattis ligula non maximus tincidunt. Sed tincidunt, nisl eu condimentum tristique, diam velit mollis tortor, id ultrices ipsum justo in dui. Vivamus sagittis posuere ligula sit amet euismod. Donec dolor eros, pretium vel venenatis eu, pretium eu arcu. Pellentesque viverra est a scelerisque gravida. Vestibulum et convallis felis. Mauris tempus nec felis et condimentum. Etiam neque augue, convallis eu mattis condimentum, scelerisque et tortor. Donec molestie molestie mollis. Suspendisse nec faucibus leo, non lobortis nulla.
+
+  Vivamus a auctor tortor. Cras at tempus orci. Aliquam eget sapien feugiat, feugiat enim luctus, rutrum tortor. Donec interdum nunc sed velit placerat rutrum. Proin blandit interdum mauris, vel iaculis metus. Nullam mattis, ante non euismod porttitor, justo augue posuere quam, at tincidunt ligula ante vitae leo. Cras at tortor at mauris viverra volutpat tincidunt ac elit. Duis ut urna tempor, luctus ligula non, faucibus urna. Mauris a ligula magna.
+
+  Phasellus placerat est non mi dapibus vestibulum. Proin maximus hendrerit quam. Nam diam lorem, semper eu felis in, tempor dapibus diam. Aliquam ut auctor velit, at scelerisque justo. Curabitur pretium nibh ligula, sed tempus turpis tempor ut. Donec semper varius nibh, a porta libero vulputate vulputate. Nam non consectetur purus. </p>
+  <%= link_to "Add a new shirt", new_tshirt_path, {class: 'btn btn-primary'} %>
+</div>
