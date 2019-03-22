@@ -1,0 +1,13 @@
+<h2>Checkout</h2>
+
+<% if @items.any? %>
+  <% @items.each do |item| %>
+  <p><%= item.tshirt.name %> | <% link_to "Delete", item_path(item), :data => {:confirm => "Fight!", :method => "delete"} %></p>
+  <p>Unit Price: <%= number_to_currency item.tshirt.price %> | Quantity: <%= item.quantity %> | Total Price: <%= number_to_currency (item.tshirt.price * item.quantity) %></p>
+  <% end %>
+  <p>Your Total: <%= number_to_currency current_rental.total %></p>
+  <% else %>
+  <p>Your shopping cart is empty.</p>
+  <% end %>
+
+  <%= link_to "Pay", tshirts_path %>

@@ -10,10 +10,10 @@ require 'faker'
 puts "Seeding DB for Gabe to design"
 10.times do
   new_user = User.new(email: Faker::Internet.email, password: 'fuckyou', first_name: Faker::Name.name, last_name: Faker::Name.name, admin: false)
-  new_user.save
-  new_shirt = Tshirt.new(name: Faker::TvShows::RickAndMorty.character , description: Faker::TvShows::RickAndMorty.location)
+  new_user.save!
+  new_shirt = Tshirt.new(name: Faker::TvShows::RickAndMorty.character , description: Faker::TvShows::RickAndMorty.location, price: 10.00, photo: 'https://images.unsplash.com/photo-1553198332-6e0aa9e3ba14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60p')
   new_shirt.user = new_user
-  new_shirt.save
+  new_shirt.save!
 end
 
 if Tshirt.first
