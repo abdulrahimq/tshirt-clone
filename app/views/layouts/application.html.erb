@@ -18,8 +18,12 @@
   </head>
   <body >
     <%= render '/components/navbar' %>
-    <%= yield %>
-    <%= render 'components/footer' %>
+    <div id="page-container">
+      <div id="content-wrap">
+        <%= yield %>
+      </div>
+      <%= render 'components/footer' %>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
 
