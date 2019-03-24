@@ -7,7 +7,7 @@ def create
   session[:rental_id] = @rental.id
   authorize @rental
   authorize @item
-
+  # This redirect to the checkout page not to the tshirt page
   redirect_to tshirt_path(item_params[:tshirt_id])
 end
 
