@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     # Uncomment when you *really understand* Pundit!
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
     def user_not_authorized
-      flash[:alert] = "Insufficient credentials"
+      flash[:alert] = "Access denied"
       redirect_to(request.referrer || tshirts_path)
     end
 

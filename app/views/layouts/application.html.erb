@@ -17,9 +17,21 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body >
-    <% flash.each do |key, value| %>
-      <p><%= value %></p>
-    <% end %>
+    <!-- adding notification if authentication fails -->
+  <% if flash[:alert].present? %>
+    <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+      <% flash.each do |key, value| %>
+        <p><%= value %></p>
+      <% end %>
+      <a data-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+  <% end %>
+
+
+
+
     <%= render '/components/navbar' %>
     <div id="page-container">
       <div id="content-wrap">
