@@ -17,6 +17,9 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body >
+    <% flash.each do |key, value| %>
+      <p><%= value %></p>
+    <% end %>
     <%= render '/components/navbar' %>
     <div id="page-container">
       <div id="content-wrap">
