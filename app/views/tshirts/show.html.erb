@@ -5,15 +5,21 @@
       <%= cl_image_tag @tshirt.photo, height: 450, width: 650, crop: :fill, radius: 5 %>
     </div>
     <div class="col-md">
-      <h2><%= @tshirt.name%></h2>
-      <p> <%= @tshirt.description %></p>
-
+      <h2> <%= @tshirt.name%> </h2>
+      <p> <%= @tshirt.description %> </p>
+      <p>Amount: <%= humanized_money_with_symbol(@tshirt.price) %></p>
       <p> <%= form_for @item do |f| %>
         <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
         <%= f.number_field :quantity %>
         <%= f.submit "Add to Cart" %>
         <% end %>
       </p>
+
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'tshirt_id', @tshirt.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+
       <div class="nav-buttons">
         <a href="<%= tshirts_path %>" class="btn btn-outline-dark btn-sm">Back to tshirts</a>
         <% if current_user == @tshirt.user || current_user.admin %>
