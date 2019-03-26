@@ -9,7 +9,8 @@
     <div class="col-md">
       <h2><%= @tshirt.name%></h2>
       <p> <%= @tshirt.description %></p>
-      <h2> Artist: <%= @tshirt.user.email %></h2>
+      <h2> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h2>
+
 
       <p> <%= form_for @item do |f| %>
         <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
