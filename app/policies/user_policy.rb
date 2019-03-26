@@ -5,12 +5,20 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def edit?
+    user.admin
+  end
+
+  def update?
+    user.admin
+  end
+
   def index?
     user.admin
   end
 
   def show?
-    true
+    user.admin
   end
 
   def destroy?

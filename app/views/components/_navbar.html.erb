@@ -20,9 +20,13 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href=<%= user_path(current_user.id) %>>Profile</a>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% if current_user.admin %>
+          <%= link_to "Manage Users" , admin_users_path, class: 'dropdown-item'%>
+          <% end %>
           <% if session[:rental_id] %>
           <a href="<%= rental_path %>" class="dropdown-item">Checkout</a>
           <% end %>
+          <%= link_to "List a Tee", new_tshirt_path, class: 'dropdown-item' %>
       <% end %>
         </div>
       </li>
