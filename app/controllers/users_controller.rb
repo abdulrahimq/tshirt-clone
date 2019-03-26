@@ -16,4 +16,28 @@ class UsersController < ApplicationController
 
     redirect_to root_path
   end
+
+  def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def update
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    @user = User.find(params[:id])
+    authorize @user
+
+    @user.update(user_params)
+    flash[:notice] = "Successfully updated user"
+    redirect_to root_path
+  end
+
+    private
+
+  def user_params
+    params.require(:user).permit(:id, :password, :password_confirmation, :photo, :email, :photo_cache, :admin)
+  end
 end

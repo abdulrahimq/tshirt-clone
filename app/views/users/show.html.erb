@@ -5,6 +5,9 @@
   <div>
     <h1>User Info</h1>
     <%= @user.email %>
+    <% if @user.admin %>
+      Administrator
+    <% end %>
   </div>
 </div>
 <div class="user-bar">

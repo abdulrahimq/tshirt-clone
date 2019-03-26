@@ -3,7 +3,7 @@
 <% @users.each do |each| %>
     <%= link_to each.email, user_path(each) %>
     <% if current_user == each || current_user.admin %>
-      <%= link_to "Edit", edit_user_registration_path(each) %>
+      <%= link_to "Edit", admin_edit_user_path(each) %>
       <%= link_to "Delete", admin_destroy_user_path(each), method: :delete %>
     <% end %>
 <% end %>
