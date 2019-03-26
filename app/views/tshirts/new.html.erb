@@ -19,21 +19,28 @@
         <%= f.submit "Load photo", class: "btn btn-outline-dark" %>
       <% end %>
       <br>
-      <h3>Color:</h3>
       <div class="radio-buttons">
-        <form name="color-picker" action="">
-          <input type="radio" name="choice" value="white" onclick="check_color(1)"> White
-          <div style="background-color: white; padding: 10px; border: 1px solid black;"></div>
-          <input type="radio" name="choice" value="grey" onclick="check_color(2)"> Grey
-          <div style="background-color: lightgrey; padding: 10px; border: 1px solid black;"></div>
-          <input type="radio" name="choice" value="black" onclick="check_color(3)"> Black
-          <div style="background-color: black; padding: 10px; border: 1px solid black;"></div>
-          </form>
+        <ul class="color-choices">
+          <li class="color-item">
+            <input type="radio" name="choice" value="white" onclick="check_color(1)" id="white">
+            <label for="white" id="white-label"></label>
+          </li>
+          <li class="color-item">
+            <input type="radio" name="choice" value="grey" onclick="check_color(2)" id="grey">
+            <label for="grey" id="grey-label"></label>
+          </li>
+          <li class="color-item">
+            <input type="radio" name="choice" value="black" onclick="check_color(3)" id="black">
+            <label for="black" id="black-label"></label>
+          </li>
+        </ul>
       </div>
       <br>
       <a href=<%= tshirts_path %> class="btn btn-outline-dark btn-sm">Back to tshirts</a>
     </div>
   </div>
 </div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>

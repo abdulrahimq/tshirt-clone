@@ -2,11 +2,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <%= cl_image_tag @tshirt.photo, height: 450, width: 650, crop: :fill, radius: 5 %>
+      <% photoString = @tshirt.photo.url[61..-1] %>
+      <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_425/v1553144623/White.jpg"%>
+      <img src="<%= photo %>", height=550, crop: :fill  alt="">
     </div>
     <div class="col-md">
       <h2><%= @tshirt.name%></h2>
       <p> <%= @tshirt.description %></p>
+      <h2> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h2>
+
 
       <p> <%= form_for @item do |f| %>
         <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
