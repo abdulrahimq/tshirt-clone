@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = policy_scope(User.all)
+    @users = policy_scope(User.all).where.not(id: current_user.id)
     authorize @users
   end
 
