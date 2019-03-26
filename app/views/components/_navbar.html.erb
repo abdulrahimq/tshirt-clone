@@ -26,6 +26,7 @@
           <% if session[:rental_id] %>
           <a href="<%= rental_path %>" class="dropdown-item">Checkout</a>
           <% end %>
+          <%= link_to "List a Tee", new_tshirt_path, class: 'dropdown-item' %>
       <% end %>
         </div>
       </li>
