@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-
   private
-
+  # After_update_path_for isn't needed probably
   def after_update_path_for(resource)
     user_path(resource)
   end
