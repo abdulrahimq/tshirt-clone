@@ -1,10 +1,17 @@
-<h1>Admin Panel Users</h1>
+<div class="container">
+  <div class="list-group text-center">
+    <h1>Admin Panel Users</h1>
 
-<% @users.each do |each| %>
-    <%= link_to each.email, user_path(each) %>
-    <% if current_user == each || current_user.admin %>
-      <%= link_to "Edit", admin_edit_user_path(each) %>
-      <%= link_to "Delete", admin_destroy_user_path(each), method: :delete %>
+    <% @users.each do |each| %>
+    <li class="list-group-item">
+      <%= link_to each.email, user_path(each) %>
+        <% if current_user == each || current_user.admin %>
+          <%= link_to "Edit", admin_edit_user_path(each) %>
+          <%= link_to "Delete", admin_destroy_user_path(each), method: :delete %>
+        <% end %>
+    </li>
+
     <% end %>
-<% end %>
+  </div>
 
+</div>
