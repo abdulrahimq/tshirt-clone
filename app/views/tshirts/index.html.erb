@@ -1,21 +1,22 @@
-  <div class="text-center" style="padding: 15px">
-    <h3>View our Tees from around the world!</h3>
-    <div class="search-bar" style="width: 50%;">
-      <%= form_tag tshirts_path, method: :get do %>
-        <%= text_field_tag :query,
+  <!-- <div class="text-center" style="padding: 15px">
+    <h3>View our Tees from around the world!</h3> -->
+    <!-- <div class="search-bar" style="width: 50%;"> -->
+      <%#= form_tag tshirts_path, method: :get do %>
+        <%#= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Search Our Tees"
         %>
-      <% end %>
+      <%# end %>
+      <!-- commeting out the original seach bar -->
       <% if @results %>
         <% @results.each do |each| %>
-        <%= each.description %>
+          <%= each.description %>
+        <% end %>
       <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
+    <!-- </div> -->
+<!--   </div>
+</div> -->
 
 <div class="container-fluid">
     <div class="row">
