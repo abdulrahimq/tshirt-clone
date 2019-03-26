@@ -1,0 +1,43 @@
+.color-choices {
+  list-style: none;
+}
+.color-item, li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.color-item, label {
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+input[type="radio"]{
+  opacity: 0;
+}
+
+#white-label {
+  border: 1.2px solid black;
+  border-radius: 50%;
+  background: white;
+  color: white;
+  padding: 20px;
+}
+
+#grey-label {
+  border: 1.2px solid black;
+  border-radius: 50%;
+  background: gray;
+  color: gray;
+  padding: 20px;
+}
+
+#black-label {
+  border: 1.2px solid black;
+  border-radius: 50%;
+  background: black;
+  color: black;
+  padding: 20px;
+}
