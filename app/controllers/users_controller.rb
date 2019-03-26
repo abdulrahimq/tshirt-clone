@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     authorize @user
     @user.destroy
 
-    redirect_to root_path
+    redirect_to users_path
   end
 
   def edit

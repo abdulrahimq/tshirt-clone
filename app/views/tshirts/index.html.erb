@@ -20,11 +20,11 @@
 <div class="container-fluid">
     <div class="row">
       <% @tshirts.each do |tshirt| %>
-        <div class=" col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
-            <% if tshirt.photo.present? %>
-              <%= cl_image_tag tshirt.photo , height: 250%>
-              <% end %>
+            <% photoString = tshirt.photo.url[61..-1] %>
+            <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_425/v1553144623/White.jpg"%>
+            <img src="<%= photo %>", height=260, crop: :fill  alt="">
             <div class="card-details">
               <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
               <h2><%= tshirt.description %></h2>
