@@ -12,7 +12,7 @@ puts "Destroying ..."
 Item.destroy_all
 Rental.destroy_all
 Tshirt.destroy_all
-User.destroy_all
+# User.destroy_all
 
 new_admin_user = User.create!(email: 'admin@gmail.com', password: 'fuckyou', admin: true)
 
