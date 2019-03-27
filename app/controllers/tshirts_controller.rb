@@ -1,6 +1,7 @@
 class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :home]
+
   def index
     @query = params[:query]
     if @query.present?

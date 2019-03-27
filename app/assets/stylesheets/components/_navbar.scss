@@ -1,28 +1,21 @@
 .navbar-carbon {
   display: flex;
-  background: black;
+  background: #FEFCFB;
   justify-content: space-between;
-  height: 10vh;
-  padding: 0px 50px;
+  height: 7vh;
+  border-bottom: 1px solid #D1CCDC;
+  box-shadow: 0 0 4px #D1CCDC;
+  padding: 0px 30px;
 }
-
 .navbar-carbon .navbar-collapse {
   flex-grow: 0;
 }
-
 .nav-link {
-  color: white;
+  color: #0A1128;
 }
-
 .nav-link:hover, .nav-link:focus {
-  color: red;
+  color: #034078;
+  font-weight: bold;
 }
 
-.logo {
-  color: white;
-  font-size: 32px;
-}
-
-.logo :hover {
-  color: red;
-}
+//h-offset v-offset blur spread color
