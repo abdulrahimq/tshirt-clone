@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     @user.update(user_params)
     flash[:notice] = "Successfully updated user"
-    redirect_to root_path
+    redirect_to user_path(@user)
   end
 
     private

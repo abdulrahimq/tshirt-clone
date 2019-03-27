@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_002308) do
     t.string "tags"
     t.float "price", default: 10.0
     t.string "sku"
-    t.integer "price_cents", default: 2500, null: false
+    t.integer "price_cents", default: 2500
     t.index ["user_id"], name: "index_tshirts_on_user_id"
   end
 
