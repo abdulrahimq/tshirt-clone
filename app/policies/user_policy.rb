@@ -18,7 +18,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin
+    user.admin || user == record
   end
 
   def destroy?
