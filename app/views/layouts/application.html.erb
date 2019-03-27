@@ -18,7 +18,7 @@
   </head>
   <body >
     <!-- adding notification if authentication fails -->
-  <% if flash[:alert].present? %>
+  <% if flash.present? %>
     <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
       <% flash.each do |key, value| %>
         <p><%= value %></p>

@@ -1,7 +1,6 @@
 class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
-  skip_before_action :authenticate_user!, only: [:index, :home]
-
+  skip_before_action :authenticate_user!, only: [:index]
   def index
     @query = params[:query]
     if @query.present?
@@ -9,18 +8,6 @@ class TshirtsController < ApplicationController
     else
       @tshirts = policy_scope(Tshirt)
     end
-
-    @creators = User.where.not(latitude: nil, longitude: nil)
-
-    @markers = @creators.map do |creator|
-      {
-        lat: creator.latitude,
-        lng: creator.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { creator: creator }),
-        image_url: helpers.asset_url('default')
-      }
-    end
-
   end
 
   def show

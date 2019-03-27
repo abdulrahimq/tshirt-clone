@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :tshirts
   resources :items
   resource :rental, only: [:show]
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
   # do
     # resources :rentals, only: [:new, :create]
   # end
@@ -15,7 +18,11 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
       }
 
-  resources :users, only: [:index, :show]
+
+  resources :users, only: [:show]
+  match 'users' => 'users#index', :via => :get, :as => :admin_users
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+  match 'edit_user/:id' => 'users#edit', :via => :get, :as => :admin_edit_user
+  match 'update_user/:id' => 'users#update', :via => :patch, :as => :admin_update_user
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
