@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   # resources :rentals, only: [:destroy]
 
   devise_for :users, controllers: {
-        registrations: 'users/registrations'
+        registrations: 'users/registrations',
+        omniauth_callbacks: 'users/omniauth'
       }
 
 

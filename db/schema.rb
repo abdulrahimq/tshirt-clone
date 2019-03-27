@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_203142) do
+ActiveRecord::Schema.define(version: 2019_03_27_194213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2019_03_25_203142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "tshirt_id"
-    t.bigint "rental_id"
-    t.index ["rental_id"], name: "index_items_on_rental_id"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_items_on_order_id"
     t.index ["tshirt_id"], name: "index_items_on_tshirt_id"
   end
 
@@ -34,16 +34,18 @@ ActiveRecord::Schema.define(version: 2019_03_25_203142) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total"
+    t.string "status"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "rentals", force: :cascade do |t|
-    t.bigint "user_id"
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "total"
-    t.string "status"
-    t.index ["user_id"], name: "index_rentals_on_user_id"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "tshirts", force: :cascade do |t|
@@ -76,11 +78,13 @@ ActiveRecord::Schema.define(version: 2019_03_25_203142) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.string "provider", limit: 50, default: "", null: false
+    t.string "uid", limit: 500, default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "orders"
   add_foreign_key "orders", "users"
-  add_foreign_key "rentals", "users"
   add_foreign_key "tshirts", "users"
 end
