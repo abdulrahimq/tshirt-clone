@@ -1,0 +1,38 @@
+.user-banner {
+  position: relative;
+}
+.user-avatar {
+  position: absolute;
+  left: 25%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+.user-banner h1 {
+  font-size: 42px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+.user-banner p {
+  font-size: 24px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+.user-buttons-layout a {
+  margin: 0px 5px;
+}
+.user-right-align {
+  text-align: right;
+}
+.user-social-links a {
+  color: #0A1128;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.user-social-links a:hover{
+  color: #034078;
+}
+.user-content {
+  text-indent: 10px;
+  text-align: justify;
+}
