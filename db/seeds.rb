@@ -10,7 +10,7 @@ require 'faker'
 puts "Destroying ..."
 
 Item.destroy_all
-Rental.destroy_all
+Order.destroy_all
 Tshirt.destroy_all
 # User.destroy_all
 
