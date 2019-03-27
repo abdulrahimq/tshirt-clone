@@ -1,21 +1,4 @@
 <div class="container">
-  <div class="text-center" style="padding: 15px">
-    <div class="search-bar" style="width: 50%;">
-      <%= form_tag tshirts_path, method: :get do %>
-      <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search our apparel"
-      %>
-      <% end %>
-      <% if @results %>
-        <% @results.each do |each| %>
-        <%= each.description %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
   <div class="row">
     <% @tshirts.each do |tshirt| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -27,7 +10,6 @@
             <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
             <h2><%= tshirt.description %></h2>
             <h2>Amount: <%= humanized_money_with_symbol(tshirt.price) %></h2>
-            </div>
           </div>
         </div>
       </div>
