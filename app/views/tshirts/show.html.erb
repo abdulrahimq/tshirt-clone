@@ -51,11 +51,10 @@
         <div class="text-center">
           <!-- I need to make it so that i can see if there is a cart for this session or not -->
           <%= cl_image_tag @tshirt.photo, height: 200, width: 400, crop: :fill, radius: 5%>
-          <%= simple_form_for :rentals do |f| %>
+          <%= simple_form_for :orders do |f| %>
           <%= f.input :quantity, collection: 0..99, prompt: "Quantity", selected: 1 %>
           <%= f.input :size, collection: %w[small medium large], prompt: "Select your age", selected: 21 %>
           <% end %>
-
         </div>
       </div>
       <div class="modal-footer">

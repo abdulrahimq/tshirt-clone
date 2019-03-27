@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     # [...]
     before_action :authenticate_user!
-    helper_method :current_rental
+    helper_method :current_order
     # before_action :configure_permitted_parameters, if: :devise_controller?
     include Pundit
 
@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
       redirect_to(request.referrer || tshirts_path)
     end
 
-    def current_rental
-      if session[:rental_id]
-        Rental.find(session[:rental_id])
+    def current_order
+      if session[:order_id]
+        Order.find(session[:order_id])
       else
-        Rental.new
+        Order.new
       end
     end
 

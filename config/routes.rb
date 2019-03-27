@@ -4,15 +4,9 @@ Rails.application.routes.draw do
 
   resources :tshirts
   resources :items
-  resource :rental, only: [:show]
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
-  # do
-    # resources :rentals, only: [:new, :create]
-  # end
-
-  # resources :rentals, only: [:destroy]
 
   devise_for :users, controllers: {
         registrations: 'users/registrations',
