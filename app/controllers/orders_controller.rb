@@ -8,7 +8,9 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @items = policy_scope(current_order.items)
     @order = current_user.orders.where(state: 'paid').find(params[:id])
     authorize @order
+    authorize @items
   end
 end
