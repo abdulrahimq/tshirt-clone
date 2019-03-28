@@ -1,5 +1,12 @@
 // Import your components CSS files here.
 @import "alert";
+
+@import "footer";
+@import "navbar";
+@import "carousel";
+@import "banner";
+@import "card";
+
 @import "avatar";
 @import "banner";
 @import "button";
@@ -9,7 +16,8 @@
 @import "fixedbody";
 @import "footer";
 @import "logo";
-@import "navbar";
+
 @import "radio";
 @import "tags";
 
+@import "user";
