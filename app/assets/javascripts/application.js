@@ -5,6 +5,8 @@
 //= require social-share-button
 //= require angular
 //= require leaflet
+//= require jquery
+//= require jquery_ujs
 
 // target elements with the "draggable" class
 

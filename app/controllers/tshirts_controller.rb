@@ -2,6 +2,22 @@ class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index]
+
+  def new_tshirt
+    # @order
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def initialize_cart
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def index
     @query = params[:query]
     if @query.present?

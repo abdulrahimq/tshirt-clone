@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :tshirts
+  resources :tshirts do
+    member do
+      get :new_tshirt
+      post :new_tshirt, to: 'tshirts#initialize_cart', as: :initialize_cart
+    end
+  end
   resources :items
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]

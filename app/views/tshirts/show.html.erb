@@ -1,9 +1,13 @@
 <br>
 <div class="container">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
   <div class="tshirt-basic-info">
     <h1><%= @tshirt.name%></h1>
     <h4> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h4>
     <p><%= @tshirt.description%></p>
+    <%= link_to 'Add To Cart', new_tshirt_tshirt_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModal'}  %>
   </div>
   <div class="row">
     <div class="col-md">
@@ -22,9 +26,9 @@
         <% tagsArray.each do |tag| %>
         <span class="tag-element"><%= tag %></span>
         <% end %>
-        
+
         <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
-        
+
       </div>
       <div class="checkout-info">
         <p> <%= form_for @item do |f| %>
@@ -40,7 +44,7 @@
       </div>
       <br>
       <div class="buttons-navigation">
-        
+
         <a href="<%= tshirts_path %>" class="btn btn-outline-dark btn-sm">Back to tshirts</a>
         <% if current_user == @tshirt.user || current_user.admin %>
           <a href="<%= edit_tshirt_path %>" class="btn btn-outline-dark btn-sm">Edit tshirt</a>
@@ -69,31 +73,26 @@
   </div>
 </div>
 
-<!-- Modal: Not being used currently, just hanging out -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= @tshirt.name %></h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="text-center">
-          <!-- I need to make it so that i can see if there is a cart for this session or not -->
-          <%= cl_image_tag @tshirt.photo, height: 200, width: 400, crop: :fill, radius: 5%>
-          <%= simple_form_for :orders do |f| %>
-          <%= f.input :quantity, collection: 0..99, prompt: "Quantity", selected: 1 %>
-          <%= f.input :size, collection: %w[small medium large], prompt: "Select your age", selected: 21 %>
-          <% end %>
-        </div>
+
       </div>
       <div class="modal-footer">
-        <%= %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Checkout</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
