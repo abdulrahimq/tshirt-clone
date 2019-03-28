@@ -15,6 +15,10 @@ gem 'geocoder'
 gem "algoliasearch-rails"
 gem 'money-rails'
 gem 'stripe'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+gem 'activerecord-session_store', '~> 1.0'
+gem 'omniauth-google-oauth2', '~> 0.4.1'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

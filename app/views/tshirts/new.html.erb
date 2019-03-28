@@ -2,18 +2,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <div class="drag-container">
-        <div class="draggable">
-          <img id="user-image", height=225, width=225, src="https://via.placeholder.com/200x200?text=Placeholder">
-        </div>
-        <img id="imagedest", height=550, width=500, src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553144623/White.jpg">
-      </div>
-    </div>
-    <div class="col-md">
       <h1>T-Shirt designer</h1>
       <%= simple_form_for(@tshirt, remote: true) do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
+        <%= f.input :tags %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden  %>
         <%= f.submit "Load photo", class: "btn btn-outline-dark" %>
@@ -36,11 +29,17 @@
         </ul>
       </div>
       <br>
-      <a href=<%= tshirts_path %> class="btn btn-outline-dark btn-sm">Back to tshirts</a>
+      <a href=<%= tshirts_path %> class="btn btn-outline-dark">Back to tshirts</a>
+    </div>
+    <div class="col-md">
+      <div class="drag-container">
+        <div class="draggable">
+          <img id="user-image", height=225, width=225, src="https://via.placeholder.com/200x200?text=Placeholder">
+        </div>
+          <img id="imagedest", height=550, width=500, src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553144623/White.jpg">
+      </div>
     </div>
   </div>
 </div>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
