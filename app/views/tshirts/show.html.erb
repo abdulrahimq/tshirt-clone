@@ -26,7 +26,7 @@
       <% end %>
 
       <div class="nav-buttons">
-        <%= social_share_button_tag("My site", url: 'https://airbnb-abdulrahimq.herokuapp.com/', desc: @tshirt.name) %>
+        <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
         <a href="<%= tshirts_path %>" class="btn btn-outline-dark btn-sm">Back to tshirts</a>
         <% if current_user == @tshirt.user || current_user.admin %>
           <a href="<%= edit_tshirt_path %>" class="btn btn-outline-dark btn-sm">Edit tshirt</a>
