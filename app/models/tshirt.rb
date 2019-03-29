@@ -1,4 +1,5 @@
 class Tshirt < ApplicationRecord
+  belongs_to :user
   include AlgoliaSearch
 
 
