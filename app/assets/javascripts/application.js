@@ -1,12 +1,12 @@
 //= require rails-ujs
-//= require jquery
 //= require interact/interact
-//= require_tree .
 //= require social-share-button
-//= require angular
-//= require leaflet
 //= require jquery
 //= require jquery_ujs
+//= require popper
+//= require turbolinks
+//= require bootstrap
+//= require_tree .
 
 // target elements with the "draggable" class
 

@@ -4,7 +4,6 @@ class TshirtsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def new_tshirt
-    # @order
     respond_to do |format|
       format.html
       format.js

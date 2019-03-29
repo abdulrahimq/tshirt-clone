@@ -1,5 +1,5 @@
 console.log('Hello from modal');
-console.log(document.querySelector('.modal-body'));
+console.log(document.querySelector('.modal-content'));
 $("#exampleModal").modal('show');
+document.querySelector('.modal-content').insertAdjacentHTML('afterbegin', `<%= render "tshirts/new_tshirt"%>`)
 
-document.querySelector('.modal-body').insertAdjacentHTML('afterbegin', `<%= render "tshirts/cart_modal"%>`)
