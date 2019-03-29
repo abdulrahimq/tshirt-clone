@@ -18,7 +18,7 @@ new_admin_user = User.create!(email: 'admin@gmail.com', password: 'fuckyou', adm
 
 puts "Seeding ..."
 10.times do
-  new_user = User.new(email: Faker::Internet.email, password: 'fuckyou', first_name: Faker::Name.name, last_name: Faker::Name.name, admin: false)
+  new_user = User.new(remote_photo_url: (Faker::Avatar.image), email: Faker::Internet.email, password: 'fuckyou', first_name: Faker::Name.name, last_name: Faker::Name.name, admin: false)
   new_user.save!
   new_shirt = Tshirt.new(remote_photo_url: (Faker::Avatar.image), name: Faker::TvShows::RickAndMorty.character , description: Faker::TvShows::RickAndMorty.location, price: 10.00)
   puts new_shirt.photo

@@ -2,6 +2,11 @@
 
   <div class="user-banner-content">
 
+   <% if @user.photo.present? %>
+     <img class="avatar-lg user-avatar" src="<%= cl_image_path(@user.photo)%>" alt="">
+   <% else %>
+     <img class="avatar-lg user-avatar" src="<%= asset_path('avatar.png')%>" alt="">
+   <% end %>
     <h1><%= @user.email %></h1>
     <h2><% if @user.admin %>Admin</h2>
     <% end %>
