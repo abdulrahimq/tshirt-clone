@@ -17,14 +17,16 @@
       <div class=tshirt-price>
         <h2>Price: <%=humanized_money_with_symbol(@tshirt.price)%></h2>
       </div>
-      <div class="tshirt-tags">
-        <% tagsArray = @tshirt.tags.split(",") %>
-        <% tagsArray.each do |tag| %>
-        <span class="tag-element"><%= tag %></span>
-        <% end %>
-        
+      <%# if @tshirt.tags.present? %>
+        <div class="tshirt-tags">
+          <% tagsArray = @tshirt.tags.split(",") %>
+          <% tagsArray.each do |tag| %>
+          <span class="tag-element"><%= tag %></span>
+          <%# end %>
+      <% end %>
+
         <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
-        
+
       </div>
       <div class="checkout-info">
         <p> <%= form_for @item do |f| %>
@@ -40,7 +42,7 @@
       </div>
       <br>
       <div class="buttons-navigation">
-        
+
         <a href="<%= tshirts_path %>" class="btn btn-outline-dark btn-sm">Back to tshirts</a>
         <% if current_user == @tshirt.user || current_user.admin %>
           <a href="<%= edit_tshirt_path %>" class="btn btn-outline-dark btn-sm">Edit tshirt</a>
