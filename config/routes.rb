@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       post :new_tshirt, to: 'tshirts#initialize_cart', as: :initialize_cart
     end
   end
-  resources :items
+  get :shopping_cart, to: 'orders#shopping_cart', as: :shopping_cart
+  resources :items, only: [:index, :create, :destroy]
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end

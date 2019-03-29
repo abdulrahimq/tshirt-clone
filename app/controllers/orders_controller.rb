@@ -13,4 +13,8 @@ class OrdersController < ApplicationController
     authorize @order
     authorize @items
   end
+
+  def shopping_cart
+
+  end
 end

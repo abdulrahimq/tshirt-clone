@@ -4,13 +4,9 @@ class TshirtsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def new_tshirt
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
-  def initialize_cart
+    @tshirt = Tshirt.all.first
+    puts Order.last.inspect
+    puts current_user.inspect
     respond_to do |format|
       format.html
       format.js
