@@ -6,27 +6,26 @@
           <h4>Categories</h4>
           <% Tshirt.tagsArray(10).each do |tag| %>
           <li class="facet-item"><%= link_to tag, tshirts_path(:query => tag) %></li>
-        <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
-    <div class="col-md-10">
-      <div class="row">
-        <% @tshirts.each do |tshirt| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card">
-            <% photoString = tshirt.photo.url[61..-1] %>
-            <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_425/v1553144623/White.jpg"%>
-            <img src="<%= photo %>", height=260, crop: :fill  alt="">
-            <div class="card-details">
-              <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
-              <h2><%= tshirt.description %></h2>
-              <h2>Amount: <%= humanized_money_with_symbol(tshirt.price) %></h2>
-            </div>
-          </div>
+    <% @tshirts.each do |tshirt| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card">
+        <% overlay = tshirt.photo.url[61..-1] %>
+        <% img_white = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},w_400/v1553144623/White.jpg" %>
+        <% img_black = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},w_400/v1553144618/Black.jpg" %>
+        <div class="img-container">
+          <img class="img-white" src="<%= img_white %>", height=290, crop: :fill  alt="">
+          <img class="img-black" src="<%= img_black %>", height=290, crop: :fill  alt="">
         </div>
-        <% end %>
+        <div class="card-details">
+          <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
+          <h1><%= humanized_money_with_symbol(tshirt.price) %></h1>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
