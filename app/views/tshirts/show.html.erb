@@ -50,14 +50,19 @@
     </div>
   </div>
   <br>
+
+  <% if @tshirt.user.tshirts.length > 1 %>
   <h2>More by this artist</h2>
   <div class="row">
     <% @tshirt.user.tshirts.each do |tshirt| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
+        <% if tshirt != @tshirt %>
         <%= render './components/card', tshirt: tshirt %>
+        <% end %>
       </div>
     <% end %>
   </div>
+  <% end %>
 </div>
 
 <!-- Modal: Not being used currently, just hanging out -->
