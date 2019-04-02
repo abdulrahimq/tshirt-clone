@@ -22,9 +22,9 @@
         <% tagsArray.each do |tag| %>
         <span class="tag-element"><%= tag %></span>
         <% end %>
-        
+
         <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
-        
+
       </div>
       <div class="checkout-info">
         <p> <%= form_for @item do |f| %>
@@ -40,7 +40,7 @@
       </div>
       <br>
       <div class="buttons-navigation">
-        
+
         <a href="<%= tshirts_path %>" class="btn btn-outline-dark btn-sm">Back to tshirts</a>
         <% if current_user == @tshirt.user || current_user.admin %>
           <a href="<%= edit_tshirt_path %>" class="btn btn-outline-dark btn-sm">Edit tshirt</a>
@@ -55,13 +55,14 @@
     <% @tshirt.user.tshirts.each do |tshirt| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card">
-          <% photoString = tshirt.photo.url[61..-1] %>
-          <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_425/v1553144623/White.jpg"%>
-          <img src="<%= photo %>", height=260, crop: :fill  alt="">
+          <% overlay = tshirt.photo.url[61..-1] %>
+          <% img_white = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},w_400/v1553144623/White.jpg" %>
+          <div class="img-container">
+            <img src="<%= img_white %>", height=290, width=100%, crop: :fill  alt="">
+          </div>
           <div class="card-details">
             <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
-            <h2><%= tshirt.description %></h2>
-            <h2>Amount: <%= humanized_money_with_symbol(tshirt.price) %></h2>
+            <h1><%= humanized_money_with_symbol(tshirt.price) %></h1>
           </div>
         </div>
       </div>
