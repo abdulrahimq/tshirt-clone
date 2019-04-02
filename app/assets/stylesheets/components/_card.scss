@@ -2,20 +2,19 @@
   position: relative;
   color: #FEFCFB;
   margin: 10px;
-  padding: 1px;
+  padding: 0;
   height: 375px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  width: 100%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
   border-radius: 4px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   text-align: center;
 }
 
 .card-details {
-  position: absolute;
-  bottom: 10px;
-  text-indent: -1.5px; //something not completely centered
+  flex-basis: 60px;
+  background-color: #FEFCFB;
+  padding-top: 5px;
 }
 
 .card-details a {
@@ -39,14 +38,8 @@
 
 .img-container{
   position: relative;
-}
-
-.img-black,
-.img-white{
+  flex-grow: 1;
   width: 100%;
-  transition: all .3s;
-  backface-visibility: hidden;
-  transform: rotate(0);
 }
 
 .img-container:hover{
@@ -58,9 +51,26 @@
   }
 }
 
+.img-black,
+.img-white{
+  width: auto;
+  transition: all .3s;
+  backface-visibility: hidden;
+  transform: rotate(0);
+}
+
 .img-black{
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
   transform: rotateY(180deg);
 }
+
+.img-tshirt{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 10%;
+}
+
