@@ -1,5 +1,8 @@
 class Tshirt < ApplicationRecord
   belongs_to :user
+  validates :name, presence: true
+  validates :description, presence: true, length: { maximum: 150 }
+  validates :photo, presence: true
   include AlgoliaSearch
 
 
@@ -11,5 +14,4 @@ class Tshirt < ApplicationRecord
   belongs_to :user
   has_many :items
   mount_uploader :photo, PhotoUploader
-  validates :photo, presence: true
 end
