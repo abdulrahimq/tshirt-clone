@@ -1,9 +1,19 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-2">
+      <div class="facet-menu">
+        <ul class="facet-list">
+          <h4>Categories</h4>
+          <% Tshirt.tagsArray(10).each do |tag| %>
+          <li class="facet-item"><%= link_to tag, tshirts_path(:query => tag) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
     <% @tshirts.each do |tshirt| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= render './components/card', tshirt: tshirt %>
-      </div>
+        <%= render './components/card', tshirt: tshirt %>    
+       </div>
     <% end %>
   </div>
 </div>

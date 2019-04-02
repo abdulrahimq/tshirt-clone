@@ -57,7 +57,7 @@
     <% @tshirt.user.tshirts.each do |tshirt| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <% if tshirt != @tshirt %>
-        <%= render './components/card', tshirt: tshirt %>
+          <%= render './components/card', tshirt: tshirt %>
         <% end %>
       </div>
     <% end %>
