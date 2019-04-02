@@ -9,5 +9,4 @@ class User < ApplicationRecord
          :timeoutable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   mount_uploader :photo, PhotoUploader
-
 end
