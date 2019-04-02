@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
+  protect_from_forgery
   def index
-    policy_scope(Item)
-
+    @items = policy_scope(Item)
   end
 
   def create
@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     authorize @order
     authorize @item
     # This redirect to the checkout page not to the tshirt page
-    redirect_to tshirt_path(item_params[:tshirt_id])
+    redirect_to shopping_cart_path
   end
 
   def destroy

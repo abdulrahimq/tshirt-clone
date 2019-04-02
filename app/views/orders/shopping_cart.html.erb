@@ -1,2 +1,18 @@
 <h1>HELOO</h1>
-<%= Item.all %>
+<% x = params[:items] %>
+<%= totalPrice = 0 %>
+<% @items.each do |item| %>
+  <h1>Hello</h1>
+  <%= item.tshirt.name %>
+  <%= cl_image_tag(item.tshirt.photo, width: 150, height: 150, crop: :fill) %>
+  <%= item.tshirt.price %>
+  <% totalPrice += item.tshirt.price %>
+<% end %>
+<br>
+<%= totalPrice %>
+
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'totalPrice', @order.total %>
+  <%= submit_tag 'Purchase', class: 'btn btn-outline-dark btn-lg' %>
+<% end %>
+

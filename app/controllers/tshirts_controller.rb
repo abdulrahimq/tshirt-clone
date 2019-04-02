@@ -5,6 +5,7 @@ class TshirtsController < ApplicationController
 
   def new_tshirt
     @tshirt = Tshirt.all.first
+    @item = Item.new
     puts Order.last.inspect
     puts current_user.inspect
     respond_to do |format|

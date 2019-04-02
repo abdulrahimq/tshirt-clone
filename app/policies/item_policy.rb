@@ -20,4 +20,7 @@ class ItemPolicy < ApplicationPolicy
   def show?
     true
   end
+  def shopping_cart?
+    true
+  end
 end

@@ -28,10 +28,11 @@
 
       </div>
       <div class="checkout-info">
-        <p> <%= form_for @item do |f| %>
-          <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
-          <%= f.number_field :quantity %>
-          <%= f.submit "Add to Cart" %>
+        <p>
+          <%= form_for @item do |f| %>
+            <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
+            <%= f.number_field :quantity %>
+            <%= f.submit "Add to Cart" %>
           <% end %>
         </p>
         <%= form_tag orders_path do %>
@@ -76,7 +77,4 @@
     </div>
   </div>
 </div>
-
-
-
 

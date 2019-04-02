@@ -10,15 +10,14 @@ Rails.application.routes.draw do
   end
   get :shopping_cart, to: 'orders#shopping_cart', as: :shopping_cart
   resources :items, only: [:index, :create, :destroy]
-  resources :orders, only: [:show, :create] do
+  resources :orders, only: [:show, :create, :shopping_cart] do
     resources :payments, only: [:new, :create]
   end
 
   devise_for :users, controllers: {
         registrations: 'users/registrations',
         omniauth_callbacks: 'users/omniauth'
-      }
-
+  }
 
   resources :users, only: [:show]
   match 'users' => 'users#index', :via => :get, :as => :admin_users
