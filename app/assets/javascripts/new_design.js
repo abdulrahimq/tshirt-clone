@@ -1,3 +1,4 @@
+ // TODO this can be changed to interpolate the string instead of using 3 different cases
 function check_color(value) {
   const photo = document.getElementById("imagedest")
   switch (value) {
