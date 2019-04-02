@@ -5,7 +5,7 @@
       <h1>T-Shirt designer</h1>
       <%= simple_form_for(@tshirt, remote: true) do |f| %>
         <%= f.input :name %>
-        <%= f.input :description %>
+        <%= f.input :description, as: :text, placeholder: 'Limited to 150 Characters ...', maxlength: 150 %>
         <%= f.input :tags, :hint => 'Add tags separated by commas ","'%>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden  %>
