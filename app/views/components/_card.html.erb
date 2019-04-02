@@ -4,7 +4,7 @@
   <img src="<%= photo %>", height=260, crop: :fill  alt="">
   <div class="card-details">
     <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
-    <h2><%= tshirt.description %></h2>
+    <h2><%= tshirt.description.truncate(30) %></h2>
     <h2>Amount: <%= humanized_money_with_symbol(tshirt.price) %></h2>
   </div>
 </div>
