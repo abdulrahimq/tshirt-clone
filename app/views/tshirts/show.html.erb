@@ -2,9 +2,6 @@
 <div class="container">
   <div class="tshirt-basic-info">
     <h1><%= @tshirt.name%></h1>
-    <h4> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h4>
-    <p><%= @tshirt.description%></p>
-
   </div>
   <div class="row">
     <div class="col-md">
@@ -16,16 +13,18 @@
     </div>
     <div class="col-md">
       <div class=tshirt-price>
+        <h4> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h4>
+        <p><%= @tshirt.description%></p>
         <h2>Price: <%=humanized_money_with_symbol(@tshirt.price)%></h2>
       </div>
       <div class="tshirt-tags">
         <% tagsArray = @tshirt.tags.split(",") %>
         <% tagsArray.each do |tag| %>
-        <span class="tag-element"><%= tag %></span>
+          <span class="tag-element"><%= tag %></span>
         <% end %>
-
-        <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
-
+        <div class="social-media-share-button">
+          <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
+        </div>
       </div>
       <div class="checkout-info">
         <%= link_to 'Add To Cart', new_tshirt_tshirt_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModal'}  %>
