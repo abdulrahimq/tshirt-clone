@@ -4,7 +4,7 @@
     <h1><%= @tshirt.name%></h1>
     <h4> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h4>
     <p><%= @tshirt.description%></p>
-    <%= link_to 'Add To Cart', new_tshirt_tshirt_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModal'}  %>
+
   </div>
   <div class="row">
     <div class="col-md">
@@ -28,17 +28,7 @@
 
       </div>
       <div class="checkout-info">
-        <p>
-          <%= form_for @item do |f| %>
-            <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
-            <%= f.number_field :quantity %>
-            <%= f.submit "Add to Cart" %>
-          <% end %>
-        </p>
-        <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'tshirt_id', @tshirt.id %>
-          <%= submit_tag 'Purchase', class: 'btn btn-outline-dark btn-lg' %>
-        <% end %>
+        <%= link_to 'Add To Cart', new_tshirt_tshirt_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModal'}  %>
       </div>
       <br>
       <div class="buttons-navigation">

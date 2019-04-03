@@ -23,14 +23,13 @@
         </td>
         <td class="precheckout_items_table__item precheckout_items_table__item--qty">
           <div>
-           <%= f.number_field :quantity %>
+           <%= f.number_field :quantity, value: 1 %>
            <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
          </div>
        </td>
        <td>
         <div>
          <select>
-          <option value="none">---</option>
           <option value="small">S</option>
           <option value="medium">M</option>
           <option value="large">L</option>
