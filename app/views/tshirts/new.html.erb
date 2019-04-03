@@ -9,6 +9,7 @@
         <%= f.input :tags, :hint => 'Add tags separated by commas ","'%>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden  %>
+        <%= javascript_pack_tag 'addListener' %>
         <%= f.submit "Save Tee", class: "btn btn-outline-dark" %>
       <% end %>
       <br>
@@ -43,8 +44,5 @@
     </div>
   </div>
 </div>
-
-<%= content_tag :div, class: 'information', data: {tshirt: @tshirt} do %>
-<% end %>
 
 <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>

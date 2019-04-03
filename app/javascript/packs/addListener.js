@@ -13,4 +13,6 @@ const addListenerToPhoto = () => {
   });
 };
 
-export { addListenerToPhoto }
+addListenerToPhoto();
+
+// export { addListenerToPhoto }
