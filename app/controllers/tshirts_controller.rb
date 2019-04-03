@@ -3,8 +3,12 @@ class TshirtsController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index]
   def index
+    # TODO redo this with a better search with Algolia if needed or remove Algolia
     @query = params[:query]
     if @query.present?
+      if policy_scope(Tshirt).search(@query) == []
+        redirect_to tshirts_path
+      end
       @tshirts = policy_scope(Tshirt).search(@query)
     else
       @tshirts = policy_scope(Tshirt)
