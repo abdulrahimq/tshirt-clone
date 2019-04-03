@@ -31,7 +31,8 @@
         </ul>
       </div>
       <br>
-      <a href=<%= tshirts_path %> class="btn btn-outline-dark">Back to tshirts</a>
+      <!-- maybe this doesn't work with quotes, but for the sake of my editor -->
+      <a href="<%= tshirts_path %>" class="btn btn-outline-dark">Back to tshirts</a>
     </div>
     <div class="col-md">
       <div class="drag-container">
@@ -45,3 +46,4 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
+<%= javascript_pack_tag 'draggable' %>
