@@ -1,11 +1,17 @@
 <div class="banner user-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 5%, rgba(10,10,10,0.6) 5%), url('https://source.unsplash.com/GZMjMukr5zU')">
+
   <div class="user-banner-content">
-    <img class="avatar-lg user-avatar"
-    src="<%= @user.photo.nil? ? image_path('avatar.png') : cl_image_path(@user.photo) %>">
+
+   <% if @user.photo.present? %>
+     <img class="avatar-lg user-avatar" src="<%= cl_image_path(@user.photo)%>" alt="">
+   <% else %>
+     <img class="avatar-lg user-avatar" src="<%= asset_path('avatar.png')%>" alt="">
+   <% end %>
     <h1><%= @user.email %></h1>
     <h2><% if @user.admin %>Admin</h2>
     <% end %>
   </div>
+
 </div>
 <br>
 <div class="container">
@@ -36,16 +42,7 @@
   <div class="row">
     <% @user.tshirts.each do |tshirt| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card">
-          <% photoString = tshirt.photo.url[61..-1] %>
-          <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_425/v1553144623/White.jpg"%>
-          <img src="<%= photo %>", height=260, crop: :fill  alt="">
-          <div class="card-details">
-            <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
-            <h2><%= tshirt.description %></h2>
-            <h2>Amount: <%= humanized_money_with_symbol(tshirt.price) %></h2>
-          </div>
-        </div>
+        <%= render './components/card', tshirt: tshirt %>
       </div>
     <% end %>
   </div>
