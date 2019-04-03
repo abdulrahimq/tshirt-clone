@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2019_03_28_224617) do
     t.integer "total"
     t.string "status"
     t.index ["user_id"], name: "index_orders_on_user_id"
-<<<<<<< HEAD
   end
 
   create_table "services", force: :cascade do |t|
@@ -52,8 +51,6 @@ ActiveRecord::Schema.define(version: 2019_03_28_224617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_services_on_user_id"
-=======
->>>>>>> c42fabde709a18ae952b6efc789a45832fa6e818
   end
 
   create_table "sessions", force: :cascade do |t|

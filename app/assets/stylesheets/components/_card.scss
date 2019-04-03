@@ -1,28 +1,76 @@
 .card {
-  color: white;
-  margin: 10px;
-  padding: 10px;
-  height: 375px;
   position: relative;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  color: #FEFCFB;
+  margin: 10px;
+  padding: 0;
+  height: 375px;
+  width: 100%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
   border-radius: 4px;
+  display: flex;
+  text-align: center;
 }
 
 .card-details {
-  position: absolute;
-  bottom: 5px;
+  flex-basis: 60px;
+  background-color: #FEFCFB;
+  padding-top: 5px;
 }
 
 .card-details a {
   text-transform: uppercase;
   font-size: 18px;
-  color: black;
-  text-align: left;
+  color: #0A1128;
   text-decoration: none !important;
+  padding: 0;
 }
 
-.card-details h2 {
-  font-size: 14px;
-  color: black;
-  text-align: left;
+.card-details a:hover {
+  color: #034078;
+  font-weight: bolder;
 }
+
+.card-details h1 {
+  font-size: 16px;
+  color: black;
+  padding: 0;
+}
+
+.img-container{
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.img-container:hover{
+  .img-black{
+    transform: rotateY(0)
+  }
+  .img-white{
+    transform: rotateY(180deg)
+  }
+}
+
+.img-black,
+.img-white{
+  width: auto;
+  transition: all .3s;
+  backface-visibility: hidden;
+  transform: rotate(0);
+}
+
+.img-black{
+    position: absolute;
+    top: 0;
+    left: 0;
+  transform: rotateY(180deg);
+}
+
+.img-tshirt{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 10%;
+}
+
