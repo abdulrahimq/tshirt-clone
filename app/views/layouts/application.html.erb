@@ -12,13 +12,13 @@
   <body >
     <!-- adding notification if authentication fails -->
   <% if flash.present? %>
-    <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-      <% flash.each do |key, value| %>
-        <p><%= value %></p>
-      <% end %>
-      <a data-dismiss="alert" aria-label="Close">
-        <i class="fas fa-times"></i>
-      </a>
+    <div class="flash alert alert-dismissible fade show" role="alert">
+      <div class="alert-content">
+        <% flash.each do |key, value| %>
+          <%= value %>
+        <% end %>
+        <a data-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
     </div>
   <% end %>
 
