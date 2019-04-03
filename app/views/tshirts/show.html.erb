@@ -42,23 +42,19 @@
     </div>
   </div>
   <br>
+
+  <% if @tshirt.user.tshirts.length > 1 %>
   <h2>More by this artist</h2>
   <div class="row">
     <% @tshirt.user.tshirts.each do |tshirt| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card">
-          <% photoString = tshirt.photo.url[61..-1] %>
-          <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_425/v1553144623/White.jpg"%>
-          <img src="<%= photo %>", height=260, crop: :fill  alt="">
-          <div class="card-details">
-            <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
-            <h2><%= tshirt.description %></h2>
-            <h2>Amount: <%= humanized_money_with_symbol(tshirt.price) %></h2>
-          </div>
-        </div>
+        <% if tshirt != @tshirt %>
+          <%= render './components/card', tshirt: tshirt %>
+        <% end %>
       </div>
     <% end %>
   </div>
+  <% end %>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
