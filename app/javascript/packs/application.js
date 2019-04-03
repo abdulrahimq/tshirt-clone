@@ -1,4 +1,4 @@
 import "bootstrap";
-import { initSearch} from '../plugins/algolia_search'
-initSearch();
+import { addListenerToPhoto } from './addListener.js';
+addListenerToPhoto();
 
