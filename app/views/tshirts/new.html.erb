@@ -3,13 +3,14 @@
   <div class="row">
     <div class="col-md">
       <h1>T-Shirt designer</h1>
-      <%= simple_form_for(@tshirt, remote: true) do |f| %>
+      <%= simple_form_for(@tshirt) do |f| %>
         <%= f.input :name %>
         <%= f.input :description, as: :text, placeholder: 'Limited to 150 Characters ...', maxlength: 150 %>
         <%= f.input :tags, :hint => 'Add tags separated by commas ","'%>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden  %>
-        <%= f.submit "Load photo", class: "btn btn-outline-dark" %>
+        <%= javascript_pack_tag 'addListener' %>
+        <%= f.submit "Save Tee", class: "btn btn-outline-dark" %>
       <% end %>
       <br>
       <!-- TODO this part of the code can be improved instead of using 1,2,3 we can
@@ -31,7 +32,7 @@
         </ul>
       </div>
       <br>
-      <a href=<%= tshirts_path %> class="btn btn-outline-dark">Back to tshirts</a>
+      <a href="<%= tshirts_path %>" class="btn btn-outline-dark">Back to tshirts</a>
     </div>
     <div class="col-md">
       <div class="drag-container">
