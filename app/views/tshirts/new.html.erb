@@ -37,16 +37,14 @@
       <a href="<%= tshirts_path %>" class="btn btn-outline-dark">Back to tshirts</a>
     </div>
     <div class="col-md">
-      <div class="drag-container">
-        <div class="draggable">
-          <img id="user-image" class="resizable" height=225, width=225, src="https://via.placeholder.com/200x200?text=Placeholder">
-        </div>
-          <img id="imagedest", height=550, width=500, src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553144623/White.jpg">
+      <div class="resize-container" >
+
+          <img id="user-image" class="resize-drag" height=225, width=225, src="https://via.placeholder.com/200x200?text=Placeholder">
+
+
       </div>
     </div>
   </div>
 </div>
 
 <%= javascript_pack_tag 'resizable' %>
-<%= javascript_pack_tag 'draggable' %>
-<div class="resizable" style="width:100px; height: 100px; background-color: blue;"></div>

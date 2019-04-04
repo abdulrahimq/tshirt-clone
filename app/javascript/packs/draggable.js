@@ -21,4 +21,9 @@ window.dragMoveListener = dragMoveListener;
 interact('.draggable')
   .draggable({
     onmove: dragMoveListener,
+    modifiers: [
+      interact.modifiers.restrict({
+        restriction: 'parent'
+      })
+    ]
 });
