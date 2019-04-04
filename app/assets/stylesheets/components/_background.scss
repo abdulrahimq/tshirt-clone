@@ -1,0 +1,26 @@
+.background-img {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background-form {
+  display: inline-block;
+  margin: 20px auto;
+  background: white;
+  padding: 50px 150px;
+  border-radius: 5px;
+}
+
+.background-form img {
+  text-align: center;
+}
+
+.background-form h4 {
+  text-align: center;
+}
+
+.background-shared-links, .form-actions {
+  text-align: center;
+}

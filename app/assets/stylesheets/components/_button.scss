@@ -2,3 +2,30 @@
   position: absolute;
   bottom: 10px;
 }
+
+.btn-carbon-primary {
+  height: 50px;
+  width: 200px;
+  margin: 5px;
+  padding: 10px 10px;
+  background-color: #FEFCFB;
+  border: 2px solid #034078;
+  color: #034078;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.btn-carbon-primary:hover {
+  color: #034078;
+  font-weight: bolder;
+}
+
+.btn-carbon-lg {
+  font-size: 18px;
+  width: 300px;
+}
+
+.btn-carbon-sm {
+  font-size: 14px;
+  width: 100px;
+}
