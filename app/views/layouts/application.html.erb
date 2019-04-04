@@ -12,7 +12,8 @@
   </head>
   <body >
     <!-- adding notification if authentication fails -->
-    <% if flash.present? %>
+    <main>
+      <% if flash.present? %>
       <div class="flash alert alert-dismissible fade show" role="alert">
         <div class="alert-content">
           <% flash.each do |key, value| %>
@@ -24,6 +25,7 @@
     <% end %>
     <%= render '/components/navbar' %>
       <%= yield %>
+    </main>
     <%= render 'components/footer' %>
 
 

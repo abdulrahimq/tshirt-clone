@@ -12,12 +12,16 @@
 
 // Your CSS partials
 @import "components/index";
-@import"pages/index";
-
-
+@import "pages/index";
 
 body {
  background-color: white;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+main{
+  flex-grow: 1;
 }
 
 // Change the size of social share buttons
@@ -30,3 +34,5 @@ $size: 32px;
     width: $size;
   }
 }
+
+
