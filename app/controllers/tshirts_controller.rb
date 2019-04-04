@@ -31,9 +31,11 @@ class TshirtsController < ApplicationController
     @tshirt = Tshirt.new(tshirt_params)
     @tshirt.user = current_user
     authorize @tshirt
-    @tshirt.save
-
-    redirect_to tshirts_path
+    if @tshirt.save
+      redirect_to tshirts_path
+    else
+      render :new
+    end
   end
 
   def edit

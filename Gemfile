@@ -28,6 +28,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
 gem 'social-share-button'
+gem 'interact-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

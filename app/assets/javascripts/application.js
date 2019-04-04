@@ -5,6 +5,7 @@
 //= require social-share-button
 //= require angular
 //= require leaflet
+//= require interact
 
 // function dragMoveListener (event) {
 //     var target = event.target,
