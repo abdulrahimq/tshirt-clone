@@ -91,10 +91,12 @@
       <% totalPrice = 0 %>
       <div class="order_items_track">
         <% @items.each do |item| %>
+          <div class="small-cart-tshirt">
           <%= cl_image_tag(item.tshirt.photo, width: 50, height: 50, crop: :fill) %>
           <%= item.tshirt.name %>
           <%= item.tshirt.price %>
           <% totalPrice += item.tshirt.price %>
+          </div>
         <% end %>
       </div>
       <div class="checkout_total">
