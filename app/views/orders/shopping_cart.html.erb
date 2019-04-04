@@ -1,19 +1,120 @@
-<h1>HELOO</h1>
-<% x = params[:items] %>
-<%= totalPrice = 0 %>
-<% @items.each do |item| %>
-  <h1>Hello</h1>
-  <%= item.tshirt.name %>
-  <%= cl_image_tag(item.tshirt.photo, width: 150, height: 150, crop: :fill) %>
-  <%= item.tshirt.price %>
-  <% totalPrice += item.tshirt.price %>
-<% end %>
-<br>
-<%= totalPrice %>
+<div class="checkout_form">
+  <div class="checkout_details">
+    <div class="checkout_details_wrap">
+      <div class="checkout_block">
+        <div class="checkout_heading">
+          Email
+          <span class="require-input">*</span>
+        </div>
+        <div class="input-with-icon">
+          <span class="icon icon-email">
+          </span>
+          <input type="email" class="form-control" placeholder="Enter your email">
+        </div>
+        <div class="checkout_block">
+          <div class="checkout_heading">
+            Shipping to
+            <span class="require-input">*</span>
+          </div>
+          <div class="shipping-address">
+            <div class="form-group">
+              <label for="">
+                Full name
+                <span class="require-input">*</span>
+              </label>
+              <input type="text" class="form-control" placeholder="Enter your full name">
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="">
+                    Street Address (shipping)
+                    <span class="require-input">*</span>
+                  </label>
+                  <input type="text" class="form-control" placeholder="Address">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="">
+                    Apt. / Suite
+                  </label>
+                  <input type="text" class="form-control" placeholder="Apt. / Suite">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="">
+                    City
+                    <span class="require-input">*</span>
+                  </label>
+                  <input type="text" class="form-control" placeholder="City">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="">
+                    Postal Code
+                  </label>
+                  <input type="text" class="form-control" placeholder="ZIP">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">
+                    State or Province
+                  </label>
+                  <input type="text" class="form-control" placeholder="State">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">
+                    Country
+                    <span class="require-input">*</span>
+                  </label>
+                  <input type="text" class="form-control" placeholder="Mexico">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="checkout_summary">
+    <div class="checkout_summary_wrap">
+      <% totalPrice = 0 %>
+      <div class="order_items_track">
+        <% @items.each do |item| %>
+          <%= cl_image_tag(item.tshirt.photo, width: 50, height: 50, crop: :fill) %>
+          <%= item.tshirt.name %>
+          <%= item.tshirt.price %>
+          <% totalPrice += item.tshirt.price %>
+        <% end %>
+      </div>
+      <div class="checkout_total">
+        <div class="checkout_separator"></div>
+        $<%= totalPrice %>
+      </div>
+      <div class="checkout_payment">
+        <div class="row">
+          <div class="col-md-6">
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'totalPrice', @order.total %>
+              <%= submit_tag 'Purchase', class: 'btn btn-outline-dark btn-lg' %>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <%= link_to "Buy other tshirts", tshirts_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'totalPrice', @order.total %>
-  <%= submit_tag 'Purchase', class: 'btn btn-outline-dark btn-lg' %>
-<% end %>
-
-<%= link_to "Buy other tshirts", tshirts_path %>
