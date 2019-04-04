@@ -1,0 +1,42 @@
+<div class='modal-header precheckout_modal_header'>
+  <h2 class='modal-title precheckout_modal_title' id='myModalLabel'>Your order</h4>
+  <button type='button' class='close' data-dismiss='modal'>x</button>
+</div>
+
+<div class='modal-body precheckout_modal_body'>
+  <%= simple_form_for Item.new do |f| %>
+
+   <table class="precheckout_items_table precheckout_table">
+    <thead class="precheckout_items_table_head">
+      <tr>
+        <th class="line_items_table__heading precheckout_items_table__item--image"></th>
+        <th class="line_items_table__heading">Qty</th>
+        <th class="line_items_table__heading">Size</th>
+        <th class="line_items_table__heading precheckout_items_table__item--price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="precheckout_items_table__item precheckout_items_table__item--image">
+          <img class="image_stack__nav_item_thumb" src="<%= cl_image_path(@tshirt.photo)  %>" alt="">
+        </td>
+        <td class="precheckout_items_table__item precheckout_items_table__item--qty">
+            <%= f.number_field :quantity, value: 1 %>
+            <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
+        </td>
+        <td>
+          <div>
+            <select>
+              <option value="small">S</option>
+              <option value="medium">M</option>
+              <option value="large">L</option>
+            </select>
+          </div>
+        </td>
+        <td><span><%= @tshirt.price %></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit "Add to Cart" %>
+  <% end %>
+</div>

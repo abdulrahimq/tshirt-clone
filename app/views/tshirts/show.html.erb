@@ -2,8 +2,6 @@
 <div class="container">
   <div class="tshirt-basic-info">
     <h1><%= @tshirt.name%></h1>
-    <h4> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h4>
-    <p><%= @tshirt.description%></p>
   </div>
   <div class="row">
     <div class="col-md">
@@ -15,28 +13,21 @@
     </div>
     <div class="col-md">
       <div class=tshirt-price>
+        <h4> Artist: <%= link_to @tshirt.user.email, user_path(@tshirt.user_id) %></h4>
+        <p><%= @tshirt.description%></p>
         <h2>Price: <%=humanized_money_with_symbol(@tshirt.price)%></h2>
       </div>
       <div class="tshirt-tags">
         <% tagsArray = @tshirt.tags.split(",") %>
         <% tagsArray.each do |tag| %>
-        <span class="tag-element"><%= tag %></span>
+          <span class="tag-element"><%= tag %></span>
         <% end %>
-
-        <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
-
+        <div class="social-media-share-button">
+          <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
+        </div>
       </div>
       <div class="checkout-info">
-        <p> <%= form_for @item do |f| %>
-          <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
-          <%= f.number_field :quantity %>
-          <%= f.submit "Add to Cart" %>
-          <% end %>
-        </p>
-        <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'tshirt_id', @tshirt.id %>
-          <%= submit_tag 'Purchase', class: 'btn btn-outline-dark btn-lg' %>
-        <% end %>
+        <%= link_to 'Add To Cart', new_tshirt_tshirt_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModal'}  %>
       </div>
       <br>
       <div class="buttons-navigation">
@@ -67,31 +58,10 @@
   <% end %>
 </div>
 
-<!-- Modal: Not being used currently, just hanging out -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= @tshirt.name %></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="text-center">
-          <!-- I need to make it so that i can see if there is a cart for this session or not -->
-          <%= cl_image_tag @tshirt.photo, height: 200, width: 400, crop: :fill, radius: 5%>
-          <%= simple_form_for :orders do |f| %>
-          <%= f.input :quantity, collection: 0..99, prompt: "Quantity", selected: 1 %>
-          <%= f.input :size, collection: %w[small medium large], prompt: "Select your age", selected: 21 %>
-          <% end %>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <%= %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Checkout</button>
-      </div>
     </div>
   </div>
 </div>
+

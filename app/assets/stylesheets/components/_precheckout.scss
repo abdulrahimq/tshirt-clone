@@ -1,0 +1,66 @@
+.precheckout_modal_title {
+  font-size: 1.375rem;
+}
+
+.precheckout_modal_header {
+  padding: 1.5rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #edeff3;
+}
+
+.precheckout_modal_body {
+  padding-top: 10px;
+}
+
+.precheckout_items_table {
+  width: 100%;
+}
+
+.precheckout_items_table_head {
+  border-bottom: 1px solid #edeff3;
+}
+
+.precheckout_items_table__item--image {
+  display: block;
+  max-height: 2.667rem;
+  text-align: center;
+}
+
+.line_items_table__heading {
+    font-size: 0.75rem;
+    padding: .5rem 0;
+    text-align: left;
+    color: #6a6f72;
+}
+
+.line_items_table__heading--price {
+    padding-left: 2rem;
+}
+
+.precheckout_items_table__item:first-of-type {
+    padding-left: 25px;
+}
+
+.image_stack__nav_item_thumb {
+  height: 30px;
+}
+
+.precheckout_items_table__item--qty {
+  font-size: 16px;
+  max-width: 3rem;
+  min-width: 3rem;
+  border: 1px solid #d8dae0;
+  color: black;
+}
+
+.form__textfield {
+}
+
+.payment_options_container {
+    text-align: left;
+    display: block;
+}
+
+.modal-footer {
+  justify-content: space-between;
+}

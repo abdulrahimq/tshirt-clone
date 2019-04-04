@@ -9,6 +9,10 @@ class TshirtPolicy < ApplicationPolicy
     true
   end
 
+  def new_tshirt?
+    true
+  end
+
   def create?
     true
   end
