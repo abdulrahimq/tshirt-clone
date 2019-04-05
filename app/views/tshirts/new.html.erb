@@ -10,12 +10,19 @@
         <%= f.input :tags, :hint => 'Add tags separated by commas ","'%>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden  %>
+        <%= f.input :x, as: :hidden %>
+        <%= f.input :y, as: :hidden %>
+        <%= f.input :width, as: :hidden %>
+        <%= f.input :height, as: :hidden %>
         <%= javascript_pack_tag 'addListener' %>
         <%= f.submit "Save Tee", class: "btn btn-outline-dark" %>
       <% end %>
       <br>
       <!-- TODO this part of the code can be improved instead of using 1,2,3 we can
       use the white, grey, and black then interpolate the values in the new_design.js -->
+      <div class="testing">
+        <a href="#" id='test-button'class='btn btn-primary'>Test Your Code</a>
+      </div>
       <div class="radio-buttons">
         <ul class="color-choices">
           <li class="color-item">
@@ -46,5 +53,5 @@
     </div>
   </div>
 </div>
-
+<%= javascript_pack_tag 'extractDataOnSubmit' %>
 <%= javascript_pack_tag 'resizable' %>
