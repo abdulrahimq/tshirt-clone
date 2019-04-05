@@ -13,7 +13,7 @@
         </div>
         <div class="checkout_block">
           <div class="checkout_heading">
-            Shipping to
+            Shipping Information
             <span class="require-input">*</span>
           </div>
           <div class="shipping-address">
@@ -109,11 +109,10 @@
           <div class="col-md-6">
             <%= form_tag orders_path do %>
               <%= hidden_field_tag 'totalPrice', @order.total %>
-              <%= submit_tag 'Purchase', class: 'btn btn-outline-dark btn-lg' %>
+              <%= submit_tag 'Purchase', class: 'btn btn-carbon-primary btn-carbon-lg' %>
             <% end %>
-          </div>
-          <div class="col-md-6">
-            <%= link_to "Buy other tshirts", tshirts_path %>
+            <br>
+            <%= link_to "Keep browsing", tshirts_path, class: 'btn btn-carbon-primary' %>
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
-<div class="background-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.8)), url('https://source.unsplash.com/6gdqWFolkC4');">
+<div class="background-img background-stripe" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.8)), url('https://source.unsplash.com/koo_vYrlU_U');">
   <div class="background-form">
     <img class="logo-lg" src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553633304/Logo.png">
     <h4>Create a new account</h4>
-    <br>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs">
