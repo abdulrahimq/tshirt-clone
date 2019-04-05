@@ -2,7 +2,6 @@
   <div class="background-form">
     <img class="logo-lg" src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553633304/Logo.png">
     <h4>Login into your account</h4>
-    <br>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
