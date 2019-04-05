@@ -3,20 +3,20 @@ const button = document.querySelector('#test-button');
 const captureData = (event) => {
   event.preventDefault();
   const userPhoto = document.querySelector('#user-image');
-  const formHeight = document.querySelector('.tshirt_height');
-  const formWidth = document.querySelector('.tshirt_width');
-  const formX = document.querySelector('.tshirt_x');
-  const formY = document.querySelector('.tshirt_y');
-  const x = userPhoto.dataset.x
-  const y = userPhoto.dataset.y
-  const height = userPhoto.style.height;
-  const width = userPhoto.style.width;
-  formHeight.value = height;
-  formWidth.value = width;
-  formX.value = x;
-  formY.value = y;
+  const formHeight = document.querySelector('#tshirt_height');
+  const formWidth = document.querySelector('#tshirt_width');
+  const formX = document.querySelector('#tshirt_x');
+  const formY = document.querySelector('#tshirt_y');
+  // const x = userPhoto.dataset.x
+  // const y = userPhoto.dataset.y
+  // const height = userPhoto.style.height;
+  // const width = userPhoto.style.width;
+  formHeight.value = userPhoto.style.height;
+  formWidth.value = userPhoto.style.width;
+  formX.value = userPhoto.dataset.x;
+  formY.value = userPhoto.dataset.y;
 
-  console.log(formHeight.value, formWidth.value, formX.value, formY.value);
+  console.log(document.querySelector('#tshirt_x').value);
   form.submit();
 }
 
