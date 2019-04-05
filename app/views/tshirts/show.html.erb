@@ -19,6 +19,13 @@
       </div>
       <div class="social-media-share-button">
         <%= social_share_button_tag(@tshirt.name , desc: @tshirt.name) %>
+      <%# if @tshirt.tags.present? %>
+        <div class="tshirt-tags">
+          <% tagsArray = @tshirt.tags.split(",") %>
+          <% tagsArray.each do |tag| %>
+          <span class="tag-element"><%= tag %></span>
+          <%# end %>
+      <% end %>
       </div>
       <div class="checkout-info">
         <%= link_to 'Add To Cart', new_tshirt_tshirt_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModal', class: 'btn btn-carbon-primary btn-carbon-lg'} %>
