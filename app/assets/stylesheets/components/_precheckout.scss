@@ -64,3 +64,12 @@
 .modal-footer {
   justify-content: space-between;
 }
+
+.precheckout_items_table__item .precheckout_items_table__item--qty {
+  padding-right: 10px;
+}
+
+#item_quantity {
+  width: 100%;
+  box-sizing: border-box;
+}
