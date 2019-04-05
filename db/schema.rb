@@ -73,10 +73,6 @@ ActiveRecord::Schema.define(version: 2019_04_05_172011) do
     t.float "price", default: 10.0
     t.string "sku"
     t.integer "price_cents", default: 2500
-    t.string "x"
-    t.string "y"
-    t.string "height"
-    t.string "width"
     t.index ["user_id"], name: "index_tshirts_on_user_id"
   end
 
