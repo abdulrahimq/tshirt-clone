@@ -4,7 +4,7 @@ class TshirtsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def new_tshirt
-    @tshirt = Tshirt.all.first
+    @tshirt = Tshirt.find(params[:id])
     @item = Item.new
     puts Order.last.inspect
     puts current_user.inspect
