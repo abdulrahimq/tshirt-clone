@@ -1,6 +1,5 @@
 class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
-  protect_from_forgery unless: -> { request.format.json? }
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index]
   def index

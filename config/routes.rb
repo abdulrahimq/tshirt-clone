@@ -13,6 +13,16 @@ Rails.application.routes.draw do
         omniauth_callbacks: 'users/omniauth_callbacks'
       }
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :tshirts
+      resources :items
+      resources :orders, only: [:show, :create] do
+        resources :payments, only: [:new, :create]
+      end
+    end
+  end
+
 
   resources :users, only: [:show]
   match 'users' => 'users#index', :via => :get, :as => :admin_users
