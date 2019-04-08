@@ -7,14 +7,11 @@ const captureData = (event) => {
   const formWidth = document.querySelector('#tshirt_width');
   const formX = document.querySelector('#tshirt_x');
   const formY = document.querySelector('#tshirt_y');
-  // const x = userPhoto.dataset.x
-  // const y = userPhoto.dataset.y
-  // const height = userPhoto.style.height;
-  // const width = userPhoto.style.width;
-  formHeight.value = userPhoto.style.height;
-  formWidth.value = userPhoto.style.width;
-  formX.value = userPhoto.dataset.x;
-  formY.value = userPhoto.dataset.y;
+
+  formHeight.value = userPhoto.style.height.replace('px', '').split('.')[0];
+  formWidth.value = userPhoto.style.width.replace('px', '').split('.')[0];
+  formX.value = userPhoto.dataset.x.replace('px','').split('.')[0];
+  formY.value = userPhoto.dataset.y.replace('px','').split('.')[0];
 
   console.log(document.querySelector('#tshirt_x').value);
   form.submit();
