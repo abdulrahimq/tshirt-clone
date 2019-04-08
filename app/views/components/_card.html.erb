@@ -1,7 +1,7 @@
 <div class="card">
   <% overlay = tshirt.photo.url[61..-1] %>
-  <% img_white = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},h_#{tshirt.height ? tshirt.height },w_#{tshirt.width ? tshirt.width : 100},x_#{tshirt.x ? tshirt.x : 100},y_#{tshirt.y}/v1553144623/White.jpg" %>
-  <% img_black = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},w_#{tshirt.width},h_#{tshirt.height},x_#{tshirt.x},y_#{tshirt.y}/v1553144618/Black.jpg" %>
+  <% img_white = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},h_300,w_300/v1553144623/White.jpg" %>
+  <% img_black = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},w_300,h_300/v1553144618/Black.jpg" %>
   <div class="img-container">
     <div class="img-white img-tshirt" style="background-image: url('<%= img_white %>');"></div>
     <div class="img-black img-tshirt" style="background-image: url('<%= img_black %>');"></div>
