@@ -18,14 +18,14 @@ class TshirtPolicy < ApplicationPolicy
   end
 
   def edit?
-    user == record.user
+    user.admin || user == record.user
   end
 
   def update?
-    user == record.user
+    user.admin || user == record.user
   end
 
   def destroy?
-    user == record.user
+    user.admin || user == record.user
   end
 end
