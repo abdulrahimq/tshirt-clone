@@ -20,6 +20,10 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'activerecord-session_store', '~> 1.0'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'simple_token_authentication'
+gem "jquery-rails"
+gem "popper"
+gem "turbolinks"
+gem "bootstrap"
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

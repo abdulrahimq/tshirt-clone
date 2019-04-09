@@ -2,6 +2,18 @@ class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:index]
+
+  def new_tshirt
+    @tshirt = Tshirt.find(params[:id])
+    @item = Item.new
+    puts Order.last.inspect
+    puts current_user.inspect
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def index
     # TODO redo this with a better search with Algolia if needed or remove Algolia
     @query = params[:query]

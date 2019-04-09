@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <h1>T-Shirt designer</h1>
+      <h2>T-Shirt designer</h2>
       <%= simple_form_for(@tshirt) do |f| %>
         <%= f.input :name %>
         <%= f.input :description, as: :text, placeholder: 'Limited to 150 Characters ...', maxlength: 150 %>
@@ -15,7 +15,7 @@
         <%= f.input :width, as: :hidden, value: params[:width] %>
         <%= f.input :height, as: :hidden, value: params[:height] %>
         <%= javascript_pack_tag 'addListener' %>
-        <%= f.submit "Save Tee", class: "btn btn-outline-dark" %>
+        <%= f.submit "Save Tee", class: "btn btn-carbon-primary btn-carbon-lg" %>
       <% end %>
       <br>
       <!-- TODO this part of the code can be improved instead of using 1,2,3 we can
@@ -47,7 +47,6 @@
       <div class="resize-container" >
 
           <img id="user-image" class="resize-drag" height=225, width=225, src="https://via.placeholder.com/200x200?text=Placeholder">
-
 
       </div>
     </div>

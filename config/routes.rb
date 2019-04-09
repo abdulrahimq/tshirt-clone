@@ -2,9 +2,15 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :tshirts
-  resources :items
-  resources :orders, only: [:show, :create] do
+  resources :tshirts do
+    member do
+      get :new_tshirt
+      post :new_tshirt, to: 'tshirts#initialize_cart', as: :initialize_cart
+    end
+  end
+  get :shopping_cart, to: 'orders#shopping_cart', as: :shopping_cart
+  resources :items, only: [:index, :create, :destroy]
+  resources :orders, only: [:show, :create, :shopping_cart] do
     resources :payments, only: [:new, :create]
   end
 
@@ -23,7 +29,6 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :update, :destroy, :show]
     end
   end
-
 
   resources :users, only: [:show]
   match 'users' => 'users#index', :via => :get, :as => :admin_users
