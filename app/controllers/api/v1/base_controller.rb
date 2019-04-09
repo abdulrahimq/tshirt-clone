@@ -1,5 +1,6 @@
 class Api::V1::BaseController < ActionController::API
   include Pundit
+  helper_method :current_order
 
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
@@ -7,6 +8,14 @@ class Api::V1::BaseController < ActionController::API
   rescue_from StandardError,                with: :internal_server_error
   rescue_from Pundit::NotAuthorizedError,   with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+  def current_order
+    if session[:order_id]
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 
   private
 
