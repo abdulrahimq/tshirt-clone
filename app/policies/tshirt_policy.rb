@@ -21,6 +21,10 @@ class TshirtPolicy < ApplicationPolicy
     true
   end
 
+  def frontEnd?
+    true
+  end
+
   def edit?
     user.admin || user == record.user
   end

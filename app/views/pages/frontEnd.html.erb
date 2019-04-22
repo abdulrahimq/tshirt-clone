@@ -1,4 +1,4 @@
 <%# going to try to make things in here, then inject into the regular html erb views, instead of overhauling the
 whole entire thing %>
-<div class="container">\</div>
+<div id="root" data-tshirts="<%= @tshirts.to_json %>">\</div>
 <%= javascript_pack_tag "frontEnd" %>
