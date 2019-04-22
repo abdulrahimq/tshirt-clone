@@ -10,7 +10,9 @@ gem 'redis'
 gem 'devise'
 gem 'faker'
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave'
+gem "fog-aws"
+gem 'mini_magick'
 gem 'geocoder'
 gem "algoliasearch-rails"
 gem 'money-rails'
@@ -46,7 +48,6 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
 end
 
 source 'https://rails-assets.org' do
