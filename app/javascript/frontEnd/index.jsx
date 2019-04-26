@@ -10,6 +10,8 @@ import { reducer as formReducer } from 'redux-form';
 
 
 import Home from './containers/home';
+import New from './containers/new';
+
 import TshirtReducer from './reducers/tshirt_reducer';
 import './stylesheets/index.scss';
 
@@ -33,18 +35,19 @@ ReactDOM.render(
             {/* A banner page to bring in users and introduce */}
             <Route path="/tshirt/new" component={New} />
             {/* where you can upload a tshirt */}
-            <Route path="/marketplace" component={MarketPlace} />
+            {/* <Route path="/marketplace" component={MarketPlace} /> */}
             {/* the marketplace where you browser, search, shop */}
-            <Route path="/checkout" component={Checkout} />
+            {/* <Route path="/checkout" component={Checkout} /> */}
             {/* once you have added enough items, you checkout */}
-            <Route path="/tshirt/:id" component={Show} />
+            {/* <Route path="/tshirt/:id" component={Show} /> */}
             {/* to check out the details and description of an individual shirt */}
-            <Route path="/user/profile/:id" component={Profile} />
+            {/* <Route path="/user/profile/:id" component={Profile} /> */}
             {/* where you can edit your user profile, view your orders */}
-            <Route path="/user/:id" component={User} />
+            {/* <Route path="/user/:id" component={User} /> */}
             {/* where you can view an artist profile */}
             {/* need to have authentication for users */}
         </Switch>
+        <h1>Carbon Print</h1>
       </Router>
     </Provider>,
   document.getElementById('root')
