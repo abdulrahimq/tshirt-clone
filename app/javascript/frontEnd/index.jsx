@@ -11,6 +11,7 @@ import { reducer as formReducer } from 'redux-form';
 
 import Home from './containers/home';
 import New from './containers/new';
+import NavBar from './components/navbar';
 
 import TshirtReducer from './reducers/tshirt_reducer';
 import './stylesheets/index.scss';
@@ -30,10 +31,10 @@ const middlewares = applyMiddleware(reduxPromise, logger);
 ReactDOM.render(
     <Provider store={createStore(reducers, initialState, middlewares)}>
       <Router history={history}>
+        <NavBar />
         <Switch>
-            <Route path="/" component={Home} />
             {/* A banner page to bring in users and introduce */}
-            <Route path="/tshirt/new" component={New} />
+            <Route path="/tshirts/new" component={New} />
             {/* where you can upload a tshirt */}
             {/* <Route path="/marketplace" component={MarketPlace} /> */}
             {/* the marketplace where you browser, search, shop */}
@@ -46,8 +47,8 @@ ReactDOM.render(
             {/* <Route path="/user/:id" component={User} /> */}
             {/* where you can view an artist profile */}
             {/* need to have authentication for users */}
+            <Route path="/" component={Home} />
         </Switch>
-        <h1>Carbon Print</h1>
       </Router>
     </Provider>,
   document.getElementById('root')

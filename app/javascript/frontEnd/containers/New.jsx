@@ -24,7 +24,9 @@ class TshirtNew extends React.Component{
     return(
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <Field label="Name" name="name" type="text" component={this.renderField} />
-        <button type="Submit" disabled={this.props.pristine || this.props.submitting}>Create Tshirt</button>
+        <Field label="Description" name="description" type="text" component={this.renderField} />
+        <Field label="Tags" name="tags" type="text" component={this.renderField} />
+        <button type="Submit">Create Tshirt</button>
       </form>
     );
   }

@@ -1,5 +1,6 @@
 export function createTshirt(body, callback) {
-  const request = fetch(`/tshirt/new`, {
+  console.log(JSON.stringify(body));
+  const request = fetch(`/tshirts/new`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
