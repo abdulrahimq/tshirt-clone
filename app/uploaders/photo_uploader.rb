@@ -4,10 +4,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   storage :fog
 
   version :standard do
-    resize_to_fill 400, 300
+    resize_to_fill 150, 100
   end
 
-  version :thumb do
-    resize_to_fill 100, 100
+  def extension_whitelist
+    %w(png)
   end
+
 end
