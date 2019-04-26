@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   root to: 'pages#frontEnd'
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :tshirts, only: [ :index, :show, :create ]
+    end
+  end
+
+  get '*path' => redirect("/")
+
   # resources :tshirts do
   #   member do
   #     get :new_tshirt
@@ -19,18 +27,18 @@ Rails.application.routes.draw do
   #       omniauth_callbacks: 'users/omniauth_callbacks'
   #     }
 
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      resources :tshirts, only: [:index, :create, :destroy, :show]
-      resources :items, only: [:create, :destroy, :show]
-      resources :orders, only: [:show, :create] do
-        resources :payments, only: [:new, :create]
-      end
-      resources :users, only: [:index, :update, :destroy, :show]
-    end
-  end
+  # namespace :api, defaults: { format: :json } do
+  #   namespace :v1 do
+  #     resources :tshirts, only: [:index, :create, :destroy, :show]
+  #     resources :items, only: [:create, :destroy, :show]
+  #     resources :orders, only: [:show, :create] do
+  #       resources :payments, only: [:new, :create]
+  #     end
+  #     resources :users, only: [:index, :update, :destroy, :show]
+  #   end
+  # end
 
-  get '*path' => redirect("/")
+ 
 
   # resources :users, only: [:show]
   # match 'users' => 'users#index', :via => :get, :as => :admin_users
