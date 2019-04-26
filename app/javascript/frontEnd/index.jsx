@@ -10,6 +10,7 @@ import { logger } from 'redux-logger';
 
 import Home from './containers/home';
 import TshirtReducer from './reducers/tshirt_reducer';
+import './stylesheets/index.scss';
 
 const root = document.getElementById('root');
 const initialState = { tshirts: JSON.parse(root.dataset.tshirts) };

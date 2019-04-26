@@ -7,7 +7,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='marketplace'>
          { this.props.tshirts.map((tshirt) => {
       return <Tshirt tshirt={tshirt} key={tshirt.id} />
     }) }

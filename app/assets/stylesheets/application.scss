@@ -1,38 +1,38 @@
-// Graphical variables
-@import "bootstrap";
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+// // Graphical variables
+// @import "bootstrap";
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
 
-// External libraries
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "social-share-button";
+// // External libraries
+// @import "bootstrap/scss/bootstrap";
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
+// @import "social-share-button";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
+// // Your CSS partials
+// @import "components/index";
+// @import "pages/index";
 
-body {
- background-color: white;
- display: flex;
- flex-direction: column;
- min-height: 100vh;
-}
-main{
-  flex-grow: 1;
-}
+// body {
+//  background-color: white;
+//  display: flex;
+//  flex-direction: column;
+//  min-height: 100vh;
+// }
+// main{
+//   flex-grow: 1;
+// }
 
-// Change the size of social share buttons
-$size: 32px;
+// // Change the size of social share buttons
+// $size: 32px;
 
-.social-share-button {
-  .ssb-icon {
-    background-size: $size $size;
-    height: $size;
-    width: $size;
-  }
-}
+// .social-share-button {
+//   .ssb-icon {
+//     background-size: $size $size;
+//     height: $size;
+//     width: $size;
+//   }
+// }
 
 
