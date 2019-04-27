@@ -3,5 +3,9 @@ export default function(state, action) {
     return [];
   }
 
+  if (action.type === 'TSHIRT_CREATED') {
+    return [...state, action.payload ];
+  }
+
   return state;
 }

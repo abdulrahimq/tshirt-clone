@@ -15,7 +15,7 @@ class Api::V1::TshirtsController < ActionController::API
 
   def create
     puts params
-    @tshirt = Tshirt.create(tshirt_params)
+    @tshirt = Tshirt.create!(tshirt_params)
     render json: @tshirt
   end
 

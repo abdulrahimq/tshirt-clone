@@ -1,9 +1,10 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
 
   root to: 'pages#frontEnd'
-
+  
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      resources :pages, only: [ :index ]
       resources :tshirts, only: [ :index, :show, :create ]
     end
   end
