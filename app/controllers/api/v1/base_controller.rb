@@ -1,40 +1,24 @@
 class Api::V1::BaseController < ActionController::API
-  include Pundit
-  helper_method :current_order
-
-  after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, only: :index
-
-  rescue_from StandardError,                with: :internal_server_error
-  rescue_from Pundit::NotAuthorizedError,   with: :user_not_authorized
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
-
-  def current_order
-    if session[:order_id]
-      Order.find(session[:order_id])
-    else
-      Order.new
-    end
-  end
+  attr_reader :current_user
+  # skip_before_action :verify_authenticity_token
+  before_action :authenticate_token!
 
   private
 
-  def user_not_authorized(exception)
-    render json: {
-      error: "Unauthorized #{exception.policy.class.to_s.underscore.camelize}.#{exception.query}"
-    }, status: :unauthorized
-  end
-
-  def not_found(exception)
-    render json: { error: exception.message }, status: :not_found
-  end
-
-  def internal_server_error(exception)
-    if Rails.env.development?
-      response = { type: exception.class.to_s, message: exception.message, backtrace: exception.backtrace }
+  def authenticate_token!
+    payload = JsonWebToken.decode(auth_token)
+    if payload.present?
+      @current_user = User.find(payload["sub"])
+      p @current_user
     else
-      response = { error: "Internal Server Error" }
+      render json: {errors: ["Invalid auth token"]}, status: :unauthorized
     end
-    render json: response, status: :internal_server_error
+  rescue JWT::DecodeError
+    render json: {errors: ["Invalid auth token, formatting error"]}, status: :unauthorized
+  end
+
+  def auth_token
+    @auth_token ||= request.headers.fetch("Authorization", " ").split(" ").last
   end
 end
+

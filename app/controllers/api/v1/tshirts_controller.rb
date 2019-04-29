@@ -1,7 +1,5 @@
-class Api::V1::TshirtsController < ActionController::API
-  # before_action :set_tshirt, only: [:show, :destroy]
-  # acts_as_token_authentication_handler_for User, except: [:index, :show]
-
+class Api::V1::TshirtsController < Api::V1::BaseController
+  # skip_before_action :authenticate_token!, only: [:index]
 
   def index
     @tshirts = Tshirt.all

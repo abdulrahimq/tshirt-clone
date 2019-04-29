@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_04_09_015024) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,12 +98,9 @@ ActiveRecord::Schema.define(version: 2019_04_09_015024) do
     t.float "longitude"
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
-<<<<<<< HEAD
+    t.text "description"
     t.string "authentication_token", limit: 30
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-=======
-    t.text "description"
->>>>>>> 9927af135bc8ef2e992c57a60f467d5a85be8dd0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
