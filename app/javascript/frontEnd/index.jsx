@@ -12,6 +12,7 @@ import { reducer as formReducer } from 'redux-form';
 import Home from './containers/home';
 import New from './containers/new';
 import NavBar from './components/navbar';
+import Login from './containers/login';
 
 import TshirtReducer from './reducers/tshirt_reducer';
 import './stylesheets/index.scss';
@@ -33,8 +34,9 @@ ReactDOM.render(
       <Router history={history}>
         <NavBar />
         <Switch>
+            <Route exact path='/login' component={Login} />
             {/* A banner page to bring in users and introduce */}
-            <Route path="/tshirts/new" component={New} />
+            <Route exact path="/tshirts/new" component={New} />
             {/* where you can upload a tshirt */}
             {/* <Route path="/marketplace" component={MarketPlace} /> */}
             {/* the marketplace where you browser, search, shop */}
@@ -47,7 +49,7 @@ ReactDOM.render(
             {/* <Route path="/user/:id" component={User} /> */}
             {/* where you can view an artist profile */}
             {/* need to have authentication for users */}
-            <Route path="/" component={Home} />
+            <Route exact path="/" component={Home} />
         </Switch>
       </Router>
     </Provider>,
