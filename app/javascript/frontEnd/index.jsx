@@ -15,6 +15,7 @@ import NavBar from './components/navbar';
 import LoginPage from './containers/loginPage';
 
 import TshirtReducer from './reducers/tshirt_reducer';
+import TokenReducer from './reducers/token_reducer';
 import './stylesheets/index.scss';
 
 const root = document.getElementById('root');
@@ -22,6 +23,7 @@ const initialState = { tshirts: JSON.parse(root.dataset.tshirts) };
 console.log(initialState);
 
 const reducers = combineReducers({
+  token: TokenReducer,
   tshirts: TshirtReducer,
   form: formReducer
 });

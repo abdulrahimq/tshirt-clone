@@ -1,5 +1,8 @@
 import React from 'react';
 import LoginForm from './login';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setToken } from '../actions/';
 
 class LoginPage extends React.Component {
   submit = values => {
@@ -17,6 +20,7 @@ class LoginPage extends React.Component {
     }).then( res => res.json())
     .then(data => {
        localStorage.setItem("token", data.token)
+       this.props.setToken(data.token)
     })
     .catch(error => console.error('Error:', error));
   }
@@ -26,4 +30,8 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setToken }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(LoginPage);
