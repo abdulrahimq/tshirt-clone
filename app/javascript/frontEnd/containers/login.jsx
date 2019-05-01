@@ -6,6 +6,7 @@ const SignInForm = props => {
     <form onSubmit={props.handleSubmit}>
       <Field name="email" component="input" type="text" />
       <Field name="password" component="input" type="text" />
+      <button type="Submit">Submit</button>
     </form>
   );
 }
