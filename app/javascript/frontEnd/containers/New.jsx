@@ -5,7 +5,7 @@ import { createTshirt } from '../actions';
 
 class TshirtNew extends React.Component{
   onSubmit = values => {
-    this.props.createTshirt(values);
+    this.props.createTshirt(values, this.props.token );
   }
 
   render() {
@@ -17,9 +17,12 @@ class TshirtNew extends React.Component{
       </form>
     );
   }
+}
 
+function mapStateToProps(state) {
+  return { token : state.token }
 }
 
 export default reduxForm({ form: 'TshirtNew' })(
-  connect(null, { createTshirt })(TshirtNew)
+  connect(mapStateToProps, { createTshirt })(TshirtNew)
  );

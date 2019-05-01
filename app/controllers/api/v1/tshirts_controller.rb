@@ -1,5 +1,5 @@
 class Api::V1::TshirtsController < Api::V1::BaseController
-  # skip_before_action :authenticate_token!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @tshirts = Tshirt.all
@@ -12,8 +12,9 @@ class Api::V1::TshirtsController < Api::V1::BaseController
   end
 
   def create
-    puts params
-    @tshirt = Tshirt.create!(tshirt_params)
+    @tshirt = Tshirt.new(tshirt_params)
+    @tshirt.user = current_user
+    @tshirt.save!
     render json: @tshirt
   end
 
