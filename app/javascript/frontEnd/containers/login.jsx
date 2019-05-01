@@ -13,3 +13,8 @@ const SignInForm = props => {
 export default reduxForm({
   form: 'signIn' // a unique identifier for this form
 })(SignInForm)
+
+
+// so the session cookie is automatically sent with the header each time - you just
+// need to send the form submit over to json endpoint of devise , then
+// the response (i think, should automatically be set in the header. )

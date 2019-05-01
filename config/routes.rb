@@ -1,6 +1,12 @@
 Rails.application.routes.draw do 
 
   root to: 'pages#frontEnd'
+
+  devise_for :users
+  # , controllers: {
+  #   registrations: 'users/registrations',
+  #   omniauth_callbacks: 'users/omniauth_callbacks'
+  # }
   
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -23,11 +29,6 @@ Rails.application.routes.draw do
   # resources :orders, only: [:show, :create, :shopping_cart] do
   #   resources :payments, only: [:new, :create]
   # end
-
-  # devise_for :users, controllers: {
-  #       registrations: 'users/registrations',
-  #       omniauth_callbacks: 'users/omniauth_callbacks'
-  #     }
 
   # namespace :api, defaults: { format: :json } do
   #   namespace :v1 do
