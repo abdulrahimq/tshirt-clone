@@ -1,12 +1,18 @@
 export function createTshirt(body, token) {
-  const content = JSON.stringify(body);
+
+  const formData = new FormData();
+  formData.append('tshirt[name]', body.name)
+  formData.append("tshirt[description]", body.description)
+  formData.append('tshirt[photo]', body.photo)
+
   const request = fetch(`/api/v1/tshirts`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
       "Authorization" : `Bearer ${token}`
     },
-    body: content
+    body: formData,
+    contentType: false,
+    processData: false
   }).then(response => response.json());
 
   return {

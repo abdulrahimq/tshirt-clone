@@ -9,9 +9,6 @@ gem 'rails', '5.2.2.1'
 gem 'redis'
 gem 'devise'
 gem 'faker'
-gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave'
-gem "fog-aws"
 gem 'mini_magick'
 gem 'geocoder'
 gem 'money-rails'
@@ -24,6 +21,7 @@ gem "jquery-rails"
 gem "popper"
 gem "turbolinks"
 gem "bootstrap"
+gem 'aws-sdk-s3'
 gem "jwt"
 
 gem 'autoprefixer-rails'

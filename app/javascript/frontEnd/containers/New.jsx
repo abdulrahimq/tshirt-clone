@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { createTshirt } from '../actions';
+import fileInput  from '../components/fileInput';
 
 class TshirtNew extends React.Component{
   onSubmit = values => {
@@ -13,6 +14,7 @@ class TshirtNew extends React.Component{
       <form onSubmit={this.props.handleSubmit(this.onSubmit) }>
         <Field name="name" component="input" type="text" />
         <Field name="description" component="textarea" />
+        <Field name="photo" component={fileInput} />
         <button type="submit" disabled={ this.props.pristine }>Submit</button>
       </form>
     );
