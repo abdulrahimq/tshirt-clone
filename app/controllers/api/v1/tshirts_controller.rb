@@ -2,8 +2,9 @@ class Api::V1::TshirtsController < Api::V1::BaseController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    puts "in the index!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     @tshirts = Tshirt.all
-    render json: @tshirts
+    render :index
   end
 
   def show
@@ -14,6 +15,9 @@ class Api::V1::TshirtsController < Api::V1::BaseController
   def create
     @tshirt = Tshirt.new(tshirt_params)
     @tshirt.user = current_user
+    @tshirt.photo.attach(tshirt_params[:photo])
+    puts @tshirt.photo
+    puts tshirt_params[:photo]
     @tshirt.save!
     render json: @tshirt
   end

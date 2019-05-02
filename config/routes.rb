@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path' => redirect("/")
 
   # resources :tshirts do
   #   member do

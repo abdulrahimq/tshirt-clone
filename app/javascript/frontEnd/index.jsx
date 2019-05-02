@@ -19,7 +19,8 @@ import TokenReducer from './reducers/token_reducer';
 import './stylesheets/index.scss';
 
 const root = document.getElementById('root');
-const initialState = { tshirts: JSON.parse(root.dataset.tshirts), token: localStorage.token };
+// tshirts: JSON.parse(root.dataset.tshirts)
+const initialState = { token: localStorage.token };
 console.log(initialState);
 
 const reducers = combineReducers({

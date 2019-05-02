@@ -27,3 +27,16 @@ export function setToken(token) {
     payload: token
   }
 }
+
+export function fetchTshirts() {
+  const request = fetch('api/v1/tshirts').then(res => res.json())
+  .then(data => {
+    console.log(data);
+    return data
+  });
+
+  return {
+    type: 'FETCH_TSHIRTS',
+    payload: request
+  }
+}

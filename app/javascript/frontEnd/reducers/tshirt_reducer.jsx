@@ -7,5 +7,9 @@ export default function(state, action) {
     return [...state, action.payload ];
   }
 
+  if (action.type === 'FETCH_TSHIRTS') {
+    return action.payload;
+  }
+
   return state;
 }
