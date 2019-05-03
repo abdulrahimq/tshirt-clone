@@ -16,8 +16,6 @@ class Api::V1::TshirtsController < Api::V1::BaseController
     @tshirt = Tshirt.new(tshirt_params)
     @tshirt.user = current_user
     @tshirt.photo.attach(tshirt_params[:photo])
-    puts @tshirt.photo
-    puts tshirt_params[:photo]
     @tshirt.save!
     render json: @tshirt
   end
