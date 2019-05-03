@@ -15,16 +15,16 @@ import NavBar from './components/navbar';
 import LoginPage from './containers/loginPage';
 
 import TshirtReducer from './reducers/tshirt_reducer';
-import TokenReducer from './reducers/token_reducer';
+import isLoggedInReducer from './reducers/is_logged_in_reducer';
 import './stylesheets/index.scss';
 
 const root = document.getElementById('root');
 // tshirts: JSON.parse(root.dataset.tshirts)
-const initialState = { token: localStorage.token };
+const initialState = { isLoggedIn: false };
 console.log(initialState);
 
 const reducers = combineReducers({
-  token: TokenReducer,
+  isLoggedIn: isLoggedInReducer,
   tshirts: TshirtReducer,
   form: formReducer
 });

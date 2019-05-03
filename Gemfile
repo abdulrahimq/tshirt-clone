@@ -23,6 +23,7 @@ gem "turbolinks"
 gem "bootstrap"
 gem 'aws-sdk-s3'
 gem "jwt"
+gem "rack-cors"
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

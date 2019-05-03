@@ -3,7 +3,7 @@ export default function(state, action) {
     return null;
   }
 
-  if (action.type === 'SET_TOKEN') {
+  if (action.type === 'TOGGLE_IS_LOGGED_IN') {
     return action.payload;
   }
 

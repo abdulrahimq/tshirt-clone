@@ -10,6 +10,7 @@ export function createTshirt(body, token) {
     headers: {
       "Authorization" : `Bearer ${token}`
     },
+    credentials: 'include',
     body: formData,
     contentType: false,
     processData: false
@@ -21,10 +22,10 @@ export function createTshirt(body, token) {
   }
 }
 
-export function setToken(token) {
+export function toggleIsLoggedIn(loggedInValue) {
   return {
-    type: 'SET_TOKEN',
-    payload: token
+    type: 'TOGGLE_IS_LOGGED_IN',
+    payload: loggedInValue
   }
 }
 
@@ -40,3 +41,5 @@ export function fetchTshirts() {
     payload: request
   }
 }
+
+

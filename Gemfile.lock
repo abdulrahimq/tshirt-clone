@@ -209,6 +209,7 @@ GEM
     pundit (2.0.1)
       activesupport (>= 3.0.0)
     rack (2.0.6)
+    rack-cors (1.0.3)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -338,6 +339,7 @@ DEPENDENCIES
   pry-rails
   puma
   pundit
+  rack-cors
   rails (= 5.2.2.1)
   rails-assets-angular!
   rails-assets-interact!

@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from './login';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setToken } from '../actions/';
+import { toggleIsLoggedIn } from '../actions/';
 
 class LoginPage extends React.Component {
   submit = values => {
@@ -13,14 +13,14 @@ class LoginPage extends React.Component {
     }
     fetch('/api/v1/auth', {
       method: 'POST',
+      credentials: 'include',
       body: JSON.stringify(data),
       headers: {
         'Content-Type' : 'application/json'
       }
     }).then( res => res.json())
     .then(data => {
-       localStorage.setItem("token", data.token)
-       this.props.setToken(data.token)
+       this.props.toggleIsLoggedIn(true)
     })
     .catch(error => console.error('Error:', error));
   }
@@ -31,7 +31,11 @@ class LoginPage extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setToken }, dispatch);
+  return bindActionCreators({ toggleIsLoggedIn }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(LoginPage);
+function mapStateToProps(state) {
+  return { isLoggedIn: state.isLoggedIn }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

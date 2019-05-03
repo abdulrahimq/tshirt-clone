@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       post 'auth', to: "authentication#create"
+      delete 'auth', to: "authentication#destroy"
       resources :pages, only: [ :index ]
       resources :tshirts, only: [ :index, :show, :create ]
     end

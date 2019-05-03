@@ -306,7 +306,7 @@ Devise.setup do |config|
         end
 
         def authenticate!
-          token = request.headers.fetch("Authorization", "").split(" ").last
+          token = cookies.signed[:jwt]
           payload = JsonWebToken.decode(token)
           success! User.find(payload["sub"])
         rescue ::JWT::ExpiredSignature

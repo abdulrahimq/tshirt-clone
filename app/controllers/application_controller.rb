@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     # [...]
+    include ::ActionController::Cookies
     before_action :authenticate_user!
     helper_method :current_order
     # before_action :configure_permitted_parameters, if: :devise_controller?
