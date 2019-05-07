@@ -23,6 +23,7 @@ gem "jquery-rails"
 gem "popper"
 gem "turbolinks"
 gem "bootstrap"
+gem 'gretel'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
