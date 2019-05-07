@@ -25,6 +25,8 @@
       </div>
     <% end %>
     <%= render '/components/navbar' %>
+      <%= breadcrumbs pretext: "",
+                      separator: " &rsaquo; " %>
       <%= yield %>
     </main>
     <%= render 'components/footer' %>
