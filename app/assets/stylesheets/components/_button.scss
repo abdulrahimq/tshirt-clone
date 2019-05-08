@@ -5,7 +5,7 @@
 
 .btn-carbon-primary {
   height: 50px;
-  width: 200px;
+  width: 150px;
   margin: 5px;
   padding: 10px 10px;
   background-color: #FEFCFB;
@@ -13,11 +13,13 @@
   color: #034078;
   border-radius: 10px;
   font-size: 16px;
+  opacity: 0.9;
 }
 
 .btn-carbon-primary:hover {
   color: #034078;
-  text-decoration: underline;
+  opacity: 1;
+  border: 2.5px solid #034078;
 }
 
 .btn-carbon-lg {
