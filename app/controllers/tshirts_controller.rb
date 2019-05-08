@@ -16,15 +16,16 @@ class TshirtsController < ApplicationController
 
   def index
     # TODO redo this with a better search with Algolia if needed or remove Algolia
-    @query = params[:query]
-    if @query.present?
-      if policy_scope(Tshirt).search(@query) == []
-        redirect_to tshirts_path
-      end
-      @tshirts = policy_scope(Tshirt).search(@query)
-    else
-      @tshirts = policy_scope(Tshirt)
-    end
+    # @query = params[:query]
+    # if @query.present?
+    #   if policy_scope(Tshirt).search(@query) == []
+    #     redirect_to tshirts_path
+    #   end
+    #   @tshirts = policy_scope(Tshirt).search(@query)
+    # else
+    #   @tshirts = policy_scope(Tshirt)
+    # end
+    @tshirts = policy_scope(Tshirt)
   end
 
   def show
