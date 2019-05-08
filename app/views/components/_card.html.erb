@@ -8,7 +8,7 @@
       <div class="img-black img-tshirt" style="background-image: url('<%= img_black %>');"></div>
     </div>
     <div class="card-details">
-      <h1><%= link_to tshirt.name, tshirt_path(tshirt) %></h1>
+      <h1><%= tshirt.name %></h1>
       <h1><%= humanized_money_with_symbol(tshirt.price) %></h1>
     </div>
   </div>
