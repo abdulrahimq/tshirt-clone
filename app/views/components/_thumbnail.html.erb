@@ -1,0 +1,5 @@
+<div class="thumbnail">
+    <% photoString = item.tshirt.photo.url[61..-1] %>
+    <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_350/v1553144623/White.jpg"%>
+    <img class="tshirt-image-show" src="<%= photo %>", height=100, crop: :fill  alt="">
+</div>

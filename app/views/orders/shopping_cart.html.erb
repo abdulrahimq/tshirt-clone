@@ -1,120 +1,115 @@
-<div class="checkout_form">
-  <div class="checkout_details">
-    <div class="checkout_details_wrap">
-      <div class="checkout_block">
-        <div class="checkout_heading">
-          Email
-          <span class="require-input">*</span>
-        </div>
-        <div class="input-with-icon">
-          <span class="icon icon-email">
-          </span>
-          <input type="email" class="form-control" placeholder="Enter your email">
-        </div>
-        <div class="checkout_block">
-          <div class="checkout_heading">
-            Shipping Information
+<br>
+<div class="container">          
+  <div class="row">
+    <div class="col-md checkout-left">
+      <h3>Email <span class="require-input">*</span></h3>
+      <div class="input-with-icon">
+        <span class="icon icon-email">
+        </span>
+        <input type="email" class="form-control" placeholder="Enter your email">
+      </div>
+      <br>
+      <h3>Shipping Information <span class="require-input">*</span></h3>
+      <div class="shipping-address">
+        <div class="form-group">
+          <label for="">
+            Full name
             <span class="require-input">*</span>
-          </div>
-          <div class="shipping-address">
+          </label>
+          <input type="text" class="form-control" placeholder="Enter your full name">
+        </div>
+        <div class="row">
+          <div class="col-md-8">
             <div class="form-group">
               <label for="">
-                Full name
+                Street Address (shipping)
                 <span class="require-input">*</span>
               </label>
-              <input type="text" class="form-control" placeholder="Enter your full name">
+              <input type="text" class="form-control" placeholder="Address">
             </div>
-            <div class="row">
-              <div class="col-md-8">
-                <div class="form-group">
-                  <label for="">
-                    Street Address (shipping)
-                    <span class="require-input">*</span>
-                  </label>
-                  <input type="text" class="form-control" placeholder="Address">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="">
-                    Apt. / Suite
-                  </label>
-                  <input type="text" class="form-control" placeholder="Apt. / Suite">
-                </div>
-              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="">
+                Apt. / Suite
+              </label>
+              <input type="text" class="form-control" placeholder="Apt. / Suite">
             </div>
-            <div class="row">
-              <div class="col-md-8">
-                <div class="form-group">
-                  <label for="">
-                    City
-                    <span class="require-input">*</span>
-                  </label>
-                  <input type="text" class="form-control" placeholder="City">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="">
-                    Postal Code
-                  </label>
-                  <input type="text" class="form-control" placeholder="ZIP">
-                </div>
-              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="">
+                City
+                <span class="require-input">*</span>
+              </label>
+              <input type="text" class="form-control" placeholder="City">
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">
-                    State or Province
-                  </label>
-                  <input type="text" class="form-control" placeholder="State">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">
-                    Country
-                    <span class="require-input">*</span>
-                  </label>
-                  <input type="text" class="form-control" placeholder="Mexico">
-                </div>
-              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="">
+                Postal Code
+              </label>
+              <input type="text" class="form-control" placeholder="ZIP">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">
+                State or Province
+              </label>
+              <input type="text" class="form-control" placeholder="State">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">
+                Country
+                <span class="require-input">*</span>
+              </label>
+              <input type="text" class="form-control" placeholder="Mexico">
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="checkout_summary">
-    <div class="checkout_summary_wrap">
-      <% totalPrice = 0 %>
-      <div class="order_items_track">
-        <% @items.each do |item| %>
-          <div class="small-cart-tshirt">
-          <%= cl_image_tag(item.tshirt.photo, width: 50, height: 50, crop: :fill) %>
-          <%= item.tshirt.name %>
-          <%= item.tshirt.price %>
-          <%= item.quantity %>
-          <% totalPrice += item.tshirt.price * item.quantity %>
-          </div>
+    <div class="col-md checkout-right">
+      <div class="checkout-top-border">
+        <h3>Order Summary</h3>
+      </div>
+      <% subTotalPrice = 0 %>
+      <div class="checkout-summary">
+          <% @items.each do |item| %>
+            <div class="row checkout-item">
+              <div class="checkout-item-photo">
+              <%= render './components/thumbnail', item: item %>
+              </div>
+              <div class="checkout-item-title">
+                <%= item.tshirt.name %>
+              </div> 
+              <div class="checkout-item-details">
+                <%= item.quantity %> x $<%= item.tshirt.price %>
+                <% subTotalPrice += item.tshirt.price * item.quantity %>
+              </div>
+            </div>
+          <% end %> 
+      </div> 
+      <div class="checkout-total">
+        <% shippingPrice = 5 %>
+        <% totalPrice = subTotalPrice.to_i + shippingPrice.to_i %>
+        <h6>Subtotal: $<%= number_with_precision(subTotalPrice, precision: 2) %></h6>
+        <h6>Shipping: $<%= number_with_precision(shippingPrice, precision: 2) %></h6>
+        <h5>Total: $<%= number_with_precision(totalPrice, precision: 2) %></h5>
+      </div>
+      <div class="checkout-payment">
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'totalPrice', @order.total %>
+          <%= submit_tag 'Purchase', class: 'btn btn-carbon-primary btn-carbon-lg' %>
         <% end %>
-      </div>
-      <div class="checkout_total">
-        <div class="checkout_separator"></div>
-        $<%= totalPrice %>
-      </div>
-      <div class="checkout_payment">
-        <div class="row">
-          <div class="col-md-6">
-            <%= form_tag orders_path do %>
-              <%= hidden_field_tag 'totalPrice', @order.total %>
-              <%= submit_tag 'Purchase', class: 'btn btn-carbon-primary btn-carbon-lg' %>
-            <% end %>
-            <br>
-            <%= link_to "Keep browsing", tshirts_path, class: 'btn btn-carbon-primary' %>
-          </div>
-        </div>
       </div>
     </div>
   </div>
