@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'turbolinks', '5.2.0'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -21,7 +22,6 @@ gem 'activerecord-session_store', '~> 1.0'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem "jquery-rails"
 gem "popper"
-gem "turbolinks"
 gem "bootstrap"
 gem 'gretel'
 
