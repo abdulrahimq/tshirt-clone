@@ -6,7 +6,7 @@
       <div class="facet-menu">
         <ul class="facet-list">
           <h5>Categories</h5>
-          <% Tshirt.tagsArray(15).each do |tag| %>
+          <% Tshirt.tagsArray.each do |tag| %>
           <li class="facet-item"><%= link_to tag, tshirts_path(:query => tag) %></li>
           <% end %>
         </ul>

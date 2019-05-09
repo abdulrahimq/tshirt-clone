@@ -15,17 +15,12 @@ class TshirtsController < ApplicationController
   end
 
   def index
-    # TODO redo this with a better search with Algolia if needed or remove Algolia
-    # @query = params[:query]
-    # if @query.present?
-    #   if policy_scope(Tshirt).search(@query) == []
-    #     redirect_to tshirts_path
-    #   end
-    #   @tshirts = policy_scope(Tshirt).search(@query)
-    # else
-    #   @tshirts = policy_scope(Tshirt)
-    # end
-    @tshirts = policy_scope(Tshirt)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR tags ILIKE :query OR description ILIKE :query"
+      @tshirts = policy_scope(Tshirt.where(sql_query, query: "%#{params[:query]}%"))
+    else
+      @tshirts = policy_scope(Tshirt)
+    end
   end
 
   def show
