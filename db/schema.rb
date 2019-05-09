@@ -10,19 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_172011) do
+ActiveRecord::Schema.define(version: 2019_05_09_205301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "designs", force: :cascade do |t|
+    t.string "photo"
+    t.string "title"
+    t.string "description"
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_designs_on_users_id"
+  end
+
   create_table "items", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "design_id"
+    t.string "model"
+    t.string "size"
     t.integer "quantity"
+    t.float "margin"
+    t.float "base_price"
+    t.float "total_cost"
+    t.integer "price_cents"
+    t.integer "base_price_cents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "tshirt_id"
-    t.bigint "order_id"
+    t.index ["design_id"], name: "index_items_on_design_id"
     t.index ["order_id"], name: "index_items_on_order_id"
-    t.index ["tshirt_id"], name: "index_items_on_tshirt_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -34,8 +49,6 @@ ActiveRecord::Schema.define(version: 2019_04_05_172011) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "total"
-    t.string "status"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -62,45 +75,27 @@ ActiveRecord::Schema.define(version: 2019_04_05_172011) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "tshirts", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "bio"
+    t.boolean "artist"
+    t.string "photo"
+    t.string "provider", limit: 50, default: "", null: false
+    t.string "uid", limit: 500, default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "description"
-    t.string "photo"
-    t.bigint "user_id"
-    t.string "tags"
-    t.float "price", default: 10.0
-    t.string "sku"
-    t.integer "price_cents", default: 2500
-    t.index ["user_id"], name: "index_tshirts_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "type_of"
-    t.boolean "admin"
-    t.string "photo"
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "provider", limit: 50, default: "", null: false
-    t.string "uid", limit: 500, default: "", null: false
-    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "designs", "users", column: "users_id"
+  add_foreign_key "items", "designs"
   add_foreign_key "items", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "services", "users"
-  add_foreign_key "tshirts", "users"
 end
