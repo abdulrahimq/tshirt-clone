@@ -1,7 +1,7 @@
 class DesignsController < ApplicationController
   # before_action :Design_params, only: [:update]
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def new_design
     @design = Design.find(params[:id])

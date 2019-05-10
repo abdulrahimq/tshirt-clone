@@ -28,10 +28,6 @@
       </div>
       <br>
       <div class="buttons-navigation">
-        <% if current_user == @design.user || current_user.admin %>
-          <a href="<%= edit_design_path %>" class="btn btn-carbon-primary btn-carbon-sm">Edit</a>
-          <%= link_to "Delete", design_path(@design), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-carbon-primary btn-carbon-sm" %>
-        <% end %>
       </div>
     </div>
   </div>

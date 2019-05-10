@@ -8,19 +8,12 @@
      <img class="avatar-lg user-avatar" src="<%= asset_path('avatar.png')%>" alt="">
    <% end %>
     <h1><%= @user.name %></h1>
-    <h2><% if @user.admin %>Admin</h2>
-    <% end %>
   </div>
 
 </div>
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-md">
-      <a href="#" class="btn btn-carbon-primary btn-carbon-sm">Message</a>
-      <a href="#" class="btn btn-carbon-primary btn-carbon-sm">+ Follow</a>
-      <a href="<%= edit_user_registration_path %>" class="btn btn-carbon-primary btn-carbon-sm">Edit Profile</a>
-    </div>
     <div class="col-md user-right-align">
       <div class="user-social-links">
         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -34,7 +27,6 @@
   <div class="user-content">
     <p> <%= @user.bio %> </p>
   </div>
-  <a href="<%= new_design_path %>" class="btn btn-carbon-primary btn-carbon-lg">List a Tee</a>
   <br>
   <br>
   <h2>Artist Collection</h2>
