@@ -1,6 +1,5 @@
 .card {
   position: relative;
-  color: #FEFCFB;
   margin: 10px;
   padding: 0;
   height: 375px;
@@ -19,55 +18,19 @@
   flex-basis: 60px;
   background-color: #FEFCFB;
   padding-top: 5px;
-}
-
-.card-details a {
   text-transform: uppercase;
-  font-size: 18px;
-  color: #0A1128;
   text-decoration: none !important;
-  padding: 0;
-}
-
-.card-details a:hover {
-  color: #034078;
-  font-weight: bolder;
 }
 
 .card-details h1 {
   font-size: 16px;
-  color: black;
-  padding: 0;
+  color: #0A1128;
 }
 
 .img-container{
   position: relative;
   flex-grow: 1;
   width: 100%;
-}
-
-.img-container:hover{
-  .img-black{
-    transform: rotateY(0)
-  }
-  .img-white{
-    transform: rotateY(180deg)
-  }
-}
-
-.img-black,
-.img-white{
-  width: auto;
-  transition: all .3s;
-  backface-visibility: hidden;
-  transform: rotate(0);
-}
-
-.img-black{
-    position: absolute;
-    top: 0;
-    left: 0;
-  transform: rotateY(180deg);
 }
 
 .img-tshirt{

@@ -7,7 +7,7 @@
         <ul class="facet-list">
           <h5>Categories</h5>
           <% Design.tagsArray.each do |tag| %>
-          <li class="facet-item"><%= link_to tag, designs_path(:query => tag) %></li>
+            <li class="facet-item"><%= link_to tag, designs_path(:query => tag) %></li>
           <% end %>
         </ul>
       </div>
