@@ -4,7 +4,9 @@ class AddDesigns < ActiveRecord::Migration[5.2]
       t.string :photo
       t.string :title
       t.string :description
-      t.references :users, foreign_key: true
+      t.string :tags
+      t.integer :margin
+      t.references :user, foreign_key: true
     end
   end
 end

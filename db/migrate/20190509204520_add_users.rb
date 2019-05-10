@@ -4,6 +4,7 @@ class AddUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :bio
       t.boolean :artist
+      t.boolean :admin
       t.string :photo
       t.string :provider, limit: 50, null: false, default: ''
       t.string :uid, limit: 500, null: false, default: ''

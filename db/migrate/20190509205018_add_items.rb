@@ -7,11 +7,10 @@ class AddItems < ActiveRecord::Migration[5.2]
       t.string :model
       t.string :size
       t.integer :quantity
-      t.float :margin
       t.float :base_price
       t.float :total_cost
       t.integer :price_cents
-      t.integer :base_price_cents
+
 
       t.timestamps
     end

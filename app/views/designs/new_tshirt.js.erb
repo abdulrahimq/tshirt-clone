@@ -1,0 +1,4 @@
+document.querySelector('.modal-content').innerHTML = ""
+$("#exampleModal").modal('show');
+document.querySelector('.modal-content').insertAdjacentHTML('afterbegin', `<%= render "designs/new_design"%>`)
+

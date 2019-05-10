@@ -3,8 +3,8 @@
   <div class="row">
     <div class="col-md">
       <h2>T-Shirt designer</h2>
-      <%= simple_form_for(@tshirt) do |f| %>
-        <%= f.input :name %>
+      <%= simple_form_for(@design) do |f| %>
+        <%= f.input :title %>
         <%= f.input :description, as: :text, placeholder: 'Limited to 150 Characters ...', maxlength: 150 %>
         <%= f.input :tags, :hint => 'Add tags separated by commas ","'%>
         <%= f.input :photo %>
@@ -31,7 +31,7 @@
           </li>
         </ul>
       </div>
-      <a href="<%= tshirts_path %>" class="btn btn-carbon-primary btn-carbon-sm">Back</a>
+      <a href="<%= designs_path %>" class="btn btn-carbon-primary btn-carbon-sm">Back</a>
     </div>
     <div class="col-md">
       <div class="drag-container">

@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 2019_05_09_205301) do
     t.string "photo"
     t.string "title"
     t.string "description"
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_designs_on_users_id"
+    t.string "tags"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_designs_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_05_09_205301) do
     t.string "name"
     t.string "bio"
     t.boolean "artist"
+    t.boolean "admin"
     t.string "photo"
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
@@ -93,7 +95,7 @@ ActiveRecord::Schema.define(version: 2019_05_09_205301) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "designs", "users", column: "users_id"
+  add_foreign_key "designs", "users"
   add_foreign_key "items", "designs"
   add_foreign_key "items", "orders"
   add_foreign_key "orders", "users"

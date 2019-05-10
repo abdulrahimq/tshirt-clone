@@ -1,4 +1,4 @@
-class TshirtPolicy < ApplicationPolicy
+class DesignPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -9,7 +9,7 @@ class TshirtPolicy < ApplicationPolicy
     true
   end
 
-  def new_tshirt?
+  def new_design?
     true
   end
 

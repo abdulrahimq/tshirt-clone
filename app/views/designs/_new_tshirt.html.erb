@@ -22,7 +22,7 @@
         </td>
         <td class="precheckout_items_table__item precheckout_items_table__item--qty">
             <%= f.number_field :quantity, value: 1 %>
-            <%= f.hidden_field :tshirt_id, value: @tshirt.id %>
+            <%= f.hidden_field :design_id, value: @design.id %>
         </td>
         <td>
           <div>
@@ -33,7 +33,7 @@
             </select>
           </div>
         </td>
-        <td><span><%= @tshirt.price %></span></td>
+        <td><span><%= @design.price %></span></td>
       </tr>
     </tbody>
   </table>

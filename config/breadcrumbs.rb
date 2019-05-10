@@ -2,13 +2,13 @@ crumb :root do
   link "Home", root_path
 end
 
-crumb :tshirts do
-  link "All tshirts", tshirts_path
+crumb :designs do
+  link "All Designs", designs_path
 end
 
-crumb :tshirt do |tshirt|
-  link tshirt.name, tshirt
-  parent :tshirts
+crumb :design do |design|
+  link design.title, design
+  parent :designs
 end
 
 # crumb :projects do

@@ -6,8 +6,8 @@
       <div class="facet-menu">
         <ul class="facet-list">
           <h5>Categories</h5>
-          <% Tshirt.tagsArray(15).each do |tag| %>
-          <li class="facet-item"><%= link_to tag, tshirts_path(:query => tag) %></li>
+          <% Design.tagsArray.each do |tag| %>
+          <li class="facet-item"><%= link_to tag, designs_path(:query => tag) %></li>
           <% end %>
         </ul>
       </div>
@@ -15,9 +15,9 @@
     <div class="col-sm-11 col-md-10">
       <h4>Browse our catalogue from independent artists</h4>
       <div class="row">
-        <% @tshirts.each do |tshirt| %>
+        <% @designs.each do |design| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= render './components/card', tshirt: tshirt %>
+            <%= render './components/card', design: design %>
           </div>
         <% end %>
       </div>
