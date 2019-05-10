@@ -2,9 +2,9 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   connect() {
-    this.myTshirtUrl = this.data.get("tshirtUrl")
+    this.url = this.data.get("url")
   }
   turbolink() {
-    Turbolinks.visit(this.myTshirtUrl)
+    Turbolinks.visit(this.url)
   }
 }

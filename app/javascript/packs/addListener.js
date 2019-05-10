@@ -1,8 +1,7 @@
 const addListenerToPhoto = () => {
-  const photo = document.querySelector('#tshirt_photo')
+  const photo = document.querySelector('#design_photo')
   photo.addEventListener("change", (event) => {
     const image = event.target.files[0]
-    console.log (image);
     const placeholder = document.getElementById("user-image");
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -15,4 +14,3 @@ const addListenerToPhoto = () => {
 
 addListenerToPhoto();
 
-// export { addListenerToPhoto }
