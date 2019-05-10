@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
+
   def index
     @users = policy_scope(User.all).where.not(id: current_user.id)
     authorize @users

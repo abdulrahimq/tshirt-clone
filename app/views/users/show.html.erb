@@ -8,8 +8,6 @@
      <img class="avatar-lg user-avatar" src="<%= asset_path('avatar.png')%>" alt="">
    <% end %>
     <h1><%= @user.email %></h1>
-    <h2><% if @user.admin %>Admin</h2>
-    <% end %>
   </div>
 
 </div>
@@ -17,24 +15,26 @@
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <a href="#" class="btn btn-carbon-primary btn-carbon-sm">Message</a>
-      <a href="#" class="btn btn-carbon-primary btn-carbon-sm">+ Follow</a>
+      <% if current_user && current_user.id == @user.id %>
       <a href="<%= edit_user_registration_path %>" class="btn btn-carbon-primary btn-carbon-sm">Edit Profile</a>
+      <% end %>
     </div>
-    <div class="col-md user-right-align">
+<!--     <div class="col-md user-right-align">
       <div class="user-social-links">
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
       </div>
-    </div>
+    </div> -->
   </div>
   <br>
   <h2>About <%= @user.email %></h2>
   <div class="user-content">
     <p> <%= @user.description %> </p>
   </div>
-  <a href="<%= new_tshirt_path %>" class="btn btn-carbon-primary btn-carbon-lg">List a Tee</a>
+  <% if current_user && current_user.id == @user.id %>
+    <a href="<%= new_tshirt_path %>" class="btn btn-carbon-primary btn-carbon-lg">List a Tee</a>
+  <% end %>
   <br>
   <br>
   <h2>Artist Collection</h2>
