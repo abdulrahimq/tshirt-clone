@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   def create
     # tshirt = Tshirt.find(params[:tshirt_id])
     # item = Item.find(params[:item_id])
-    order = Order.create!(amount: find_orders_items, state: 'pending', user: current_user)
+    order = Order.create!(amount: find_orders_items, state: 'pending')
     authorize order
     redirect_to new_order_payment_path(order)
   end

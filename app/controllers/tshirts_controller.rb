@@ -1,7 +1,7 @@
 class TshirtsController < ApplicationController
   # before_action :tshirt_params, only: [:update]
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :new_tshirt]
 
   def new_tshirt
     @tshirt = Tshirt.find(params[:id])
