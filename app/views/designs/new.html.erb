@@ -15,22 +15,6 @@
       <br>
       <!-- TODO this part of the code can be improved instead of using 1,2,3 we can
       use the white, grey, and black then interpolate the values in the new_design.js -->
-      <div class="radio-buttons">
-        <ul class="color-choices">
-          <li class="color-item">
-            <input type="radio" name="choice" value="white" onclick="check_color(1)" id="white">
-            <label for="white" id="white-label"></label>
-          </li>
-          <li class="color-item">
-            <input type="radio" name="choice" value="grey" onclick="check_color(2)" id="grey">
-            <label for="grey" id="grey-label"></label>
-          </li>
-          <li class="color-item">
-            <input type="radio" name="choice" value="black" onclick="check_color(3)" id="black">
-            <label for="black" id="black-label"></label>
-          </li>
-        </ul>
-      </div>
       <a href="<%= designs_path %>" class="btn btn-carbon-primary btn-carbon-sm">Back</a>
     </div>
     <div class="col-md">
@@ -43,5 +27,3 @@
     </div>
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>

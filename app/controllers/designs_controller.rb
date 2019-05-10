@@ -4,7 +4,7 @@ class DesignsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def new_design
-    @Design = Design.find(params[:id])
+    @design = Design.find(params[:id])
     @item = Item.new
     puts Order.last.inspect
     puts current_user.inspect
