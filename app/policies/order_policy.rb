@@ -9,6 +9,10 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def new_design?
+    true
+  end
+
   def create?
     true
   end
