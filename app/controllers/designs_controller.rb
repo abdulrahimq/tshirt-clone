@@ -5,9 +5,9 @@ class DesignsController < ApplicationController
 
   def new_design
     @design = Design.find(params[:id])
+    authorize @design
     @item = Item.new
-    puts Order.last.inspect
-    puts current_user.inspect
+    authorize @item
     respond_to do |format|
       format.html
       format.js

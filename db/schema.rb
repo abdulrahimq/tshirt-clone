@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_05_09_205301) do
     t.string "title"
     t.string "description"
     t.string "tags"
+    t.integer "margin"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_designs_on_user_id"
   end
@@ -30,11 +31,9 @@ ActiveRecord::Schema.define(version: 2019_05_09_205301) do
     t.string "model"
     t.string "size"
     t.integer "quantity"
-    t.float "margin"
     t.float "base_price"
     t.float "total_cost"
     t.integer "price_cents"
-    t.integer "base_price_cents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["design_id"], name: "index_items_on_design_id"
@@ -43,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_05_09_205301) do
 
   create_table "orders", force: :cascade do |t|
     t.string "state"
-    t.string "tshirt_sku"
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "MXN", null: false
     t.jsonb "payment"

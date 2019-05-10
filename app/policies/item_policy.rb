@@ -5,6 +5,10 @@ class ItemPolicy < ApplicationPolicy
     end
   end
 
+  def new_design?
+    true
+  end
+
   def index?
     true
   end

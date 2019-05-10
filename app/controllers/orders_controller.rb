@@ -26,12 +26,12 @@ class OrdersController < ApplicationController
 
   def find_orders_items
     orders_total_price = 0
-    Item.all.each do |item|
-      if item[:order_id] == current_order.id
-        orders_total_price += item.tshirt.price * item.quantity
-      end
-    end
-    puts orders_total_price
-    return orders_total_price
+    # Item.all.each do |item|
+    #   if item[:order_id] == current_order.id
+    #     orders_total_price += item.design.price * item.quantity
+    #   end
+    # end
+    # puts orders_total_price
+    # return orders_total_price
   end
 end

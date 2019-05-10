@@ -1,5 +1,5 @@
 <br>
-<div class="container">          
+<div class="container">
   <div class="row">
     <div class="col-md checkout-left">
       <h3>Email <span class="require-input">*</span></h3>
@@ -89,15 +89,15 @@
               <%= render './components/thumbnail', item: item %>
               </div>
               <div class="checkout-item-title">
-                <%= item.tshirt.name %>
-              </div> 
+                <%= item.design.title %>
+              </div>
               <div class="checkout-item-details">
-                <%= item.quantity %> x $<%= item.tshirt.price %>
-                <% subTotalPrice += item.tshirt.price * item.quantity %>
+              <!-- <%#= item.quantity %> x $ <%#= item.tshirt.price %> -->
+                <%# subTotalPrice += item.tshirt.price * item.quantity %>
               </div>
             </div>
-          <% end %> 
-      </div> 
+          <% end %>
+      </div>
       <div class="checkout-total">
         <% shippingPrice = 5 %>
         <% totalPrice = subTotalPrice.to_i + shippingPrice.to_i %>
@@ -107,7 +107,7 @@
       </div>
       <div class="checkout-payment">
         <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'totalPrice', @order.total %>
+          <%#= hidden_field_tag 'totalPrice', @order.total %>
           <%= submit_tag 'Purchase', class: 'btn btn-carbon-primary btn-carbon-lg' %>
         <% end %>
       </div>

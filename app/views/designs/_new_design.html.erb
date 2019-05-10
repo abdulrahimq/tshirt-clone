@@ -18,7 +18,7 @@
     <tbody>
       <tr>
         <td class="precheckout_items_table__item precheckout_items_table__item--image">
-          <img class="image_stack__nav_item_thumb" src="<%= cl_image_path(@tshirt.photo)  %>" alt="">
+          <img class="image_stack__nav_item_thumb" src="<%= cl_image_path(@design.photo)  %>" alt="">
         </td>
         <td class="precheckout_items_table__item precheckout_items_table__item--qty">
             <%= f.number_field :quantity, value: 1 %>
@@ -33,7 +33,6 @@
             </select>
           </div>
         </td>
-        <td><span><%= @design.price %></span></td>
       </tr>
     </tbody>
   </table>
