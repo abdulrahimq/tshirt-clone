@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_order
+  skip_before_action :authenticate_user!
 
   def new
     authorize @order
@@ -30,6 +31,6 @@ class PaymentsController < ApplicationController
 private
 
   def set_order
-    @order = current_user.orders.where(state: 'pending').find(params[:order_id])
+    @order = current_order
   end
 end

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   protect_from_forgery
+  skip_before_action :authenticate_user!, only: [:create]
   def index
     @items = policy_scope(Item)
   end
@@ -7,7 +8,6 @@ class ItemsController < ApplicationController
   def create
     @order = current_order
     @item = @order.items.new(item_params)
-    @order.user = current_user
     @order.save!
     session[:order_id] = @order.id
     authorize @order
