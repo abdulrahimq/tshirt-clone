@@ -1,13 +1,12 @@
-<div data-controller="clickable" data-clickable-tshirt-url="<%= tshirt_path(tshirt) %>">
+<div data-controller="clickable" data-clickable-url="<%= design_path(design) %>">
   <div class="card" data-action="click->clickable#turbolink" >
-    <% overlay = tshirt.photo.url[61..-1] %>
+    <% overlay = design.photo.url[61..-1] %>
     <% img_white = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{overlay},w_400/v1553144623/White.jpg" %>
     <div class="img-container">
       <div class="img-tshirt" style="background-image: url('<%= img_white %>');"></div>
     </div>
     <div class="card-details">
-      <h1><%= tshirt.name %></h1>
-      <h1><%= humanized_money_with_symbol(tshirt.price) %></h1>
+      <h1><%= design.title %></h1>
     </div>
   </div>
 </div>

@@ -4,8 +4,8 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="search-bar" style="width: 30%;">
-    <%= form_tag tshirts_path, method: :get do %>
+  <div class="search-bar" style="width: 50%;">
+    <%= form_tag designs_path, method: :get do %>
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -38,7 +38,7 @@
             <% if current_user.admin %>
             <%= link_to "Manage Users" , admin_users_path, class: 'dropdown-item'%>
             <% end %>
-            <%= link_to "List a Tee", new_tshirt_path, class: 'dropdown-item' %>
+            <%= link_to "Upload Your Design", new_design_path, class: 'dropdown-item' %>
             <% end %>
           </div>
         </li>

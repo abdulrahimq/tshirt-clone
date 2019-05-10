@@ -1,0 +1,29 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <h2>T-Shirt designer</h2>
+      <%= simple_form_for(@design) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description, as: :text, placeholder: 'Limited to 150 Characters ...', maxlength: 150 %>
+        <%= f.input :tags, :hint => 'Add tags separated by commas ","'%>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden  %>
+        <%= javascript_pack_tag 'addListener' %>
+        <%= f.submit "Save Tee", class: "btn btn-carbon-primary btn-carbon-lg" %>
+      <% end %>
+      <br>
+      <!-- TODO this part of the code can be improved instead of using 1,2,3 we can
+      use the white, grey, and black then interpolate the values in the new_design.js -->
+      <a href="<%= designs_path %>" class="btn btn-carbon-primary btn-carbon-sm">Back</a>
+    </div>
+    <div class="col-md">
+      <div class="drag-container">
+        <div class="draggable" data-controller="photo-swap">
+          <img id="user-image", height=225, width=225, src="https://via.placeholder.com/200x200?text=Placeholder">
+        </div>
+          <img id="imagedest", class="tshirt-image-show", height=550, width=500, src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553144623/White.jpg">
+      </div>
+    </div>
+  </div>
+</div>

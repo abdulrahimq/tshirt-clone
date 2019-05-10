@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :tshirts do
+  resources :designs do
     member do
-      get :new_tshirt
-      post :new_tshirt, to: 'tshirts#initialize_cart', as: :initialize_cart
+      get :new_design
+      post :new_design, to: 'tshirts#initialize_cart', as: :initialize_cart
     end
   end
   get :shopping_cart, to: 'orders#shopping_cart', as: :shopping_cart

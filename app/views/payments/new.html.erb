@@ -1,7 +1,7 @@
 <div class="background-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.8)), url('https://source.unsplash.com/koo_vYrlU_U');">
   <div id="background-checkout" class="background-form">
     <img class="logo-lg" src="https://res.cloudinary.com/dju9xcsec/image/upload/v1553633304/Logo.png">
-    <h4>Finalize your purchase!<%= @order.tshirt_sku %></h3>
+    <h4>Finalize your purchase!<%#= @order.tshirt_sku %></h3>
     <%= form_tag order_payments_path(@order) do %>
       <article>
         <label class="amount">
@@ -11,9 +11,9 @@
       <form action="<%= order_payments_path(@order) %>" method="POST">
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-name="My Tshirt"
+        data-name="My Orders"
         data-email="<%= current_user.email %>"
-        data-description="Tshirt <%= @order.tshirt_sku %>"
+        data-description="Tshirt <%#= @order.tshirt_sku %>"
         data-amount="<%= @order.amount_cents %>"
         data-currency="<%= @order.amount.currency %>">
       </script>

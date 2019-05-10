@@ -7,7 +7,7 @@
    <% else %>
      <img class="avatar-lg user-avatar" src="<%= asset_path('avatar.png')%>" alt="">
    <% end %>
-    <h1><%= @user.email %></h1>
+    <h1><%= @user.name %></h1>
     <h2><% if @user.admin %>Admin</h2>
     <% end %>
   </div>
@@ -30,18 +30,18 @@
     </div>
   </div>
   <br>
-  <h2>About <%= @user.email %></h2>
+  <h2>About <%= @user.name %></h2>
   <div class="user-content">
-    <p> <%= @user.description %> </p>
+    <p> <%= @user.bio %> </p>
   </div>
-  <a href="<%= new_tshirt_path %>" class="btn btn-carbon-primary btn-carbon-lg">List a Tee</a>
+  <a href="<%= new_design_path %>" class="btn btn-carbon-primary btn-carbon-lg">List a Tee</a>
   <br>
   <br>
   <h2>Artist Collection</h2>
   <div class="row">
-    <% @user.tshirts.each do |tshirt| %>
+    <% @user.designs.each do |design| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= render './components/card', tshirt: tshirt %>
+        <%= render './components/card', design: design %>
       </div>
     <% end %>
   </div>

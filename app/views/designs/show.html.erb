@@ -1,0 +1,57 @@
+<br>
+<div class="container">
+  <div class="design-basic-info">
+    <p><% breadcrumb :design, @design %>
+      <%= breadcrumbs pretext: "",
+                      separator: " &rsaquo; " %>
+    </p>
+    <h1><%= @design.title %></h1>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <div class="design-overlay">
+        <% photoString = @design.photo.url[61..-1] %>
+        <% photo = "https://res.cloudinary.com/dju9xcsec/image/upload/l_#{photoString},w_425/v1553144623/White.jpg"%>
+        <img class="design-image-show" src="<%= photo %>", height=550, crop: :fill  alt="">
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="design-description">
+        <h4> Artist: <%= link_to ( @design.user.name || @design.user.email ), user_path(@design.user_id) %></h4>
+        <p> Description: <%= @design.description%></p>
+      </div>
+      <div class="social-media-share-button">
+        <%= social_share_button_tag(@design.title , desc: @design.title) %>
+      </div>
+      <div class="checkout-info">
+        <%= link_to 'Add To Cart', new_design_design_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModal', class: 'btn btn-carbon-primary btn-carbon-lg'} %>
+      </div>
+      <br>
+      <div class="buttons-navigation">
+        <% if current_user == @design.user || current_user.admin %>
+          <a href="<%= edit_design_path %>" class="btn btn-carbon-primary btn-carbon-sm">Edit</a>
+          <%= link_to "Delete", design_path(@design), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-carbon-primary btn-carbon-sm" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <% if @design.user.designs.length > 1 %>
+  <h2>More by this artist</h2>
+  <div class="row">
+    <% @design.user.designs.each do |design| %>
+      <% if design != @design %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render './components/card', design: design %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <% end %>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
