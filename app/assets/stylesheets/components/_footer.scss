@@ -20,12 +20,17 @@
   color: #034078;
 }
 
-.footer-privacy a {
-  text-decoration: none;
-  color: #0A1128;
+.footer-copyright {
+  display: block;
+  line-height: 1em;
 }
 
-.footer-privacy a:hover {
+.footer-copyright a {
+  color: #0A1128;
+  text-decoration: none;
+}
+
+.footer-copyright a:hover {
   color: #034078;
 }
 
